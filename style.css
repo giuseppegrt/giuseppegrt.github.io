@@ -1,36 +1,147 @@
-<style>
-  .site-nav {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.8rem 1rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid #ddd;
-    background: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
+/* Base page style (keep or merge with your existing styles) */
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+}
 
-  .site-nav a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
-  }
+/* Top navigation bar */
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0.75rem;
+  z-index: 1000;
+}
 
-  .site-nav a:hover {
-    text-decoration: underline;
-  }
+/* Optional brand/home text on left */
+.site-nav .brand {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
 
-  .site-nav .home-link {
-    font-size: 1.2rem;
-    line-height: 1;
-    text-decoration: none;
-    margin-right: 0.25rem;
-  }
+.site-nav .brand:hover {
+  color: #000;
+}
 
-  .site-nav a.active {
-    font-weight: 700;
-    text-decoration: underline;
-  }
-</style>
+/* Hamburger menu container */
+.nav-menu {
+  position: relative;
+}
+
+/* <details> default marker removal */
+.nav-menu summary {
+  list-style: none;
+}
+.nav-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Hamburger button */
+.menu-toggle {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  align-items: center;
+  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-toggle:hover {
+  background: #f9fafb;
+  border-color: #c7cdd6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Hamburger bars */
+.menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #111827;
+  border-radius: 999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Optional animation when open (turn into X) */
+.nav-menu[open] .menu-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-menu[open] .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+.nav-menu[open] .menu-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Dropdown panel */
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  min-width: 220px;
+  padding: 0.4rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+/* Open on hover (desktop), focus, or click (details[open]) */
+.nav-menu:hover .dropdown,
+.nav-menu:focus-within .dropdown,
+.nav-menu[open] .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Dropdown links */
+.dropdown a {
+  display: block;
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 500;
+}
+
+.dropdown a:hover {
+  background: #f3f4f6;
+}
+
+.dropdown a.active {
+  background: #eef2ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
