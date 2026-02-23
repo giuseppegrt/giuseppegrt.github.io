@@ -1,0 +1,36 @@
+<style>
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+  }
+
+  .site-nav a:hover {
+    text-decoration: underline;
+  }
+
+  .site-nav .home-link {
+    font-size: 1.2rem;
+    line-height: 1;
+    text-decoration: none;
+    margin-right: 0.25rem;
+  }
+
+  .site-nav a.active {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+</style>
