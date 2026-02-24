@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Giuseppe Gruttad'Auria</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="./index.html" class="brand">Giuseppe Gruttad'Auria</a>
+
+    <details class="nav-menu">
+      <summary class="menu-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </summary>
+
+      <div class="dropdown" role="menu" aria-label="Site sections">
+        <a href="./index.html">Home</a>
+        <a href="./research.html">Research</a>
+        <a href="./teaching.html">Teaching</a>
+        <a href="./cv.html">CV</a>
+        <a href="./contact.html" class="active">Contact</a>
+      </div>
+    </details>
+  </nav>
+
+  <div class="wrap">
+    <div class="card">
+      <h1>Contact</h1>
+      <p class="subtitle">Send a message</p>
+
+      <p>
+        If you would like to get in touch regarding research, teaching, or collaboration,
+        please use the form below.
+      </p>
+
+      <!--
+        Replace the action URL with your Formspree endpoint:
+        https://formspree.io/f/XXXXXXXX
+      -->
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/XXXXXXXX"
+        method="POST"
+      >
+        <!-- Optional: customize email subject -->
+        <input type="hidden" name="_subject" value="New message from your website" />
+
+        <!-- Optional: redirect to a thank-you page after submission -->
+        <!-- <input type="hidden" name="_next" value="https://yourdomain.com/contact-thank-you.html" /> -->
+
+        <!-- Honeypot anti-spam field (leave hidden) -->
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" />
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required autocomplete="name" />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="8"
+            required
+            placeholder="Write your message here..."
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Send</button>
+          <a class="btn" href="mailto:your.email@unine.ch">Email directly</a>
+        </div>
+
+        <p class="footer-note">
+          You can also contact me directly by email if preferred.
+        </p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
