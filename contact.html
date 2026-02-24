@@ -1,129 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Giuseppe Gruttad'Auria</title>
-  <link rel="stylesheet" href="./style.css" />
-</head>
-<body>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="./index.html" class="brand">Giuseppe Gruttad'Auria</a>
+<section class="card" aria-labelledby="guestbook-title" style="margin-top: 1.25rem;">
+  <h2 id="guestbook-title">Guestbook</h2>
+  <p class="subtitle">Leave a public note (GitHub login required)</p>
 
-    <details class="nav-menu">
-      <summary class="menu-toggle" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </summary>
+  <p>
+    For private messages, please use email. For public comments, feedback, or a quick hello,
+    you can leave a note below.
+  </p>
 
-      <div class="dropdown" role="menu" aria-label="Site sections">
-        <a href="./index.html">Home</a>
-        <a href="./research.html">Research</a>
-        <a href="./teaching.html">Teaching</a>
-        <a href="./cv.html">CV</a>
-        <a href="./contact.html" class="active" aria-current="page">Contact</a>
-      </div>
-    </details>
-  </nav>
+  <div class="giscus"></div>
 
-  <div class="wrap">
-    <div class="card">
-      <h1>Contact</h1>
-      <p class="subtitle">Send a message</p>
-
-      <p>
-        If you would like to get in touch regarding research, teaching, or collaboration,
-        please use the form below.
-      </p>
-
-      <!-- Status message shown after redirect from contact.php -->
-      <div id="form-status" class="form-status" aria-live="polite" role="status"></div>
-
-      <form
-        class="contact-form"
-        action="./contact.php"
-        method="POST"
-      >
-        <!-- Honeypot anti-spam field (leave hidden) -->
-        <input
-          type="text"
-          name="_gotcha"
-          class="hp-field"
-          tabindex="-1"
-          autocomplete="off"
-          aria-hidden="true"
-        />
-
-        <div class="form-grid">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required autocomplete="name" />
-          </div>
-
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required autocomplete="email" />
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="subject">Subject</label>
-          <input id="subject" name="subject" type="text" autocomplete="off" />
-        </div>
-
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="8"
-            required
-            placeholder="Write your message here..."
-          ></textarea>
-        </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn primary">Send</button>
-          <a class="btn" href="mailto:giuseppe.gruttadauria@unine.ch">Email directly</a>
-        </div>
-
-        <p class="footer-note">
-          You can also contact me directly by email if preferred.
-        </p>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const status = document.getElementById("form-status");
-      if (!status) return;
-
-      const sent = params.get("sent");
-      const error = params.get("error");
-
-      if (sent === "1") {
-        status.textContent = "Message sent successfully. Thank you.";
-        status.classList.add("success");
-      } else if (error === "missing") {
-        status.textContent = "Please fill in all required fields.";
-        status.classList.add("error");
-      } else if (error === "email") {
-        status.textContent = "Please enter a valid email address.";
-        status.classList.add("error");
-      } else if (error === "send") {
-        status.textContent = "Sorry, there was a problem sending your message. Please email directly.";
-        status.classList.add("error");
-      }
-
-      // Optional: clean the URL after showing the message
-      if (sent || error) {
-        const cleanUrl = window.location.pathname;
-        window.history.replaceState({}, document.title, cleanUrl);
-      }
-    })();
-  </script>
-</body>
-</html>
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="YOUR_GITHUB_USERNAME/YOUR_REPO"
+    data-repo-id="YOUR_REPO_ID"
+    data-category="Guestbook"
+    data-category-id="YOUR_CATEGORY_ID"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+  ></script>
+</section>
