@@ -22,7 +22,7 @@
         <a href="./research.html">Research</a>
         <a href="./teaching.html">Teaching</a>
         <a href="./cv.html">CV</a>
-        <a href="./contact.html" class="active">Contact</a>
+        <a href="./contact.html" class="active" aria-current="page">Contact</a>
       </div>
     </details>
   </nav>
@@ -37,23 +37,23 @@
         please use the form below.
       </p>
 
-      <!--
-        Replace the action URL with your Formspree endpoint:
-        https://formspree.io/f/XXXXXXXX
-      -->
+      <!-- Status message shown after redirect from contact.php -->
+      <div id="form-status" class="form-status" aria-live="polite" role="status"></div>
+
       <form
         class="contact-form"
-        action="https://formspree.io/f/XXXXXXXX"
+        action="./contact.php"
         method="POST"
       >
-        <!-- Optional: customize email subject -->
-        <input type="hidden" name="_subject" value="New message from your website" />
-
-        <!-- Optional: redirect to a thank-you page after submission -->
-        <!-- <input type="hidden" name="_next" value="https://yourdomain.com/contact-thank-you.html" /> -->
-
         <!-- Honeypot anti-spam field (leave hidden) -->
-        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" />
+        <input
+          type="text"
+          name="_gotcha"
+          class="hp-field"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
 
         <div class="form-grid">
           <div class="field">
@@ -85,7 +85,7 @@
 
         <div class="form-actions">
           <button type="submit" class="btn primary">Send</button>
-          <a class="btn" href="mailto:your.email@unine.ch">Email directly</a>
+          <a class="btn" href="mailto:giuseppe.gruttadauria@unine.ch">Email directly</a>
         </div>
 
         <p class="footer-note">
@@ -94,5 +94,36 @@
       </form>
     </div>
   </div>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const status = document.getElementById("form-status");
+      if (!status) return;
+
+      const sent = params.get("sent");
+      const error = params.get("error");
+
+      if (sent === "1") {
+        status.textContent = "Message sent successfully. Thank you.";
+        status.classList.add("success");
+      } else if (error === "missing") {
+        status.textContent = "Please fill in all required fields.";
+        status.classList.add("error");
+      } else if (error === "email") {
+        status.textContent = "Please enter a valid email address.";
+        status.classList.add("error");
+      } else if (error === "send") {
+        status.textContent = "Sorry, there was a problem sending your message. Please email directly.";
+        status.classList.add("error");
+      }
+
+      // Optional: clean the URL after showing the message
+      if (sent || error) {
+        const cleanUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+    })();
+  </script>
 </body>
 </html>
