@@ -562,18 +562,19 @@ body {
 }
 
 .pub-item {
-  padding: 14px 0 12px;
-  border-top: 1px solid var(--line);
+  margin: 0 0 22px 0;
 }
 
-.pub-item:first-of-type {
-  border-top: none;
-  padding-top: 4px;
+.pub-item:last-child {
+  margin-bottom: 0;
 }
 
 .pub-citation {
-  margin: 0 0 10px 0;
-  color: var(--muted);
+  margin: 0 0 8px 0;
+}
+
+.pub-tags {
+  margin: 0;
 }
 
 .section h3 {
