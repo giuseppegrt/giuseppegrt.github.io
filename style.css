@@ -16,7 +16,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -66,7 +67,6 @@ body {
   z-index: 1000;
 }
 
-/* Brand */
 .site-nav .brand {
   text-decoration: none;
   color: #111827;
@@ -78,12 +78,10 @@ body {
   color: #000;
 }
 
-/* Hamburger menu container */
 .nav-menu {
   position: relative;
 }
 
-/* Remove default marker */
 .nav-menu summary {
   list-style: none;
 }
@@ -92,7 +90,6 @@ body {
   display: none;
 }
 
-/* Hamburger button */
 .menu-toggle {
   width: 42px;
   height: 42px;
@@ -119,7 +116,6 @@ body {
   outline-offset: 2px;
 }
 
-/* Hamburger bars */
 .menu-toggle span {
   display: block;
   width: 18px;
@@ -129,7 +125,6 @@ body {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Open animation */
 .nav-menu[open] .menu-toggle span:nth-child(1) {
   transform: translateY(6px) rotate(45deg);
 }
@@ -142,7 +137,6 @@ body {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Dropdown */
 .dropdown {
   position: absolute;
   right: 0;
@@ -152,8 +146,7 @@ body {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #fff;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
-
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
@@ -161,7 +154,6 @@ body {
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
 }
 
-/* Open on hover/focus/click */
 .nav-menu:hover .dropdown,
 .nav-menu:focus-within .dropdown,
 .nav-menu[open] .dropdown {
@@ -171,7 +163,6 @@ body {
   pointer-events: auto;
 }
 
-/* Dropdown links */
 .dropdown a {
   display: block;
   padding: 0.65rem 0.8rem;
@@ -255,7 +246,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #fff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   background: #e9edf5;
   display: block;
 }
@@ -311,6 +302,46 @@ body {
   margin-top: 18px;
   font-size: 0.9rem;
   color: #7a8291;
+}
+
+/* =========================
+   Shared content blocks
+========================= */
+.intro {
+  margin-bottom: 8px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro p {
+  max-width: 72ch;
+}
+
+.pub-item {
+  margin-bottom: 20px;
+}
+
+.pub-item:last-child {
+  margin-bottom: 0;
+}
+
+.pub-citation {
+  margin: 0 0 16px 0;
+  color: var(--muted);
+}
+
+.section h3 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.course-item {
+  margin-bottom: 18px;
+  color: var(--muted);
+}
+
+.course-meta p {
+  max-width: 72ch;
 }
 
 /* =========================
@@ -412,7 +443,6 @@ body {
   margin: 0.3rem 0;
 }
 
-/* Optional helper if you add mini separators or labels later */
 .kicker {
   font-size: 0.85rem;
   color: #6b7280;
@@ -485,7 +515,6 @@ body {
   align-items: center;
 }
 
-/* Honeypot hidden field */
 .hp-field {
   position: absolute !important;
   left: -9999px !important;
@@ -542,57 +571,14 @@ body {
     grid-template-columns: 1fr;
   }
 
-   .subtitle {
-  margin: 0 0 18px 0;
-  color: #374151;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.intro {
-  margin-bottom: 8px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid var(--line);
-}
-
-.intro p {
-  max-width: 72ch;
-}
-
-.pub-item {
-  margin-bottom: 20px;
-}
-
-.pub-item:last-child {
-  margin-bottom: 0;
-}
-
-.pub-citation {
-  margin: 0 0 16px 0;
-  color: var(--muted);
-}
-
-.pub-tag {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0.5rem;
-  font-size: 0.78rem;
-  line-height: 1.2;
-  color: #374151;
-  background: #f8fafc;
-  border: 1px solid #e5eaf2;
-  border-radius: 999px;
-  padding: 0.2rem 0.55rem;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.section h3 {
-  margin-top: 18px;
-  margin-bottom: 8px;
-}
+  .subtitle {
+    margin: 0 0 18px 0;
+    color: #374151;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
 
   .media-grid img {
     height: auto;
