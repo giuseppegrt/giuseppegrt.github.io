@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Giuseppe Gruttad'Auria monogram">
+  <text
+    x="24.5"
+    y="46"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="43"
+    font-weight="700"
+    fill="#16202f"
+  >G</text>
+
+  <g transform="translate(52 14.8) scale(0.86)" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#0f766e" fill="#0f766e" stroke-width="1.1">
+      <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+      <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+      <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+    </g>
+
+    <g transform="rotate(45)" stroke="#115e59" fill="#115e59" stroke-width="1.1">
+      <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+      <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+      <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+    </g>
+
+    <g transform="rotate(90)" stroke="#19756d" fill="#19756d" stroke-width="1.1">
+      <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+      <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+      <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+    </g>
+
+    <g transform="rotate(135)" stroke="#536173" fill="#536173" stroke-width="1.1">
+      <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+      <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+      <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+    </g>
+
+    <g transform="rotate(180)" stroke="#8aa69b" fill="#8aa69b" stroke-width="1.1">
+      <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+      <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+      <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+    </g>
+
+    <g transform="rotate(225)" stroke="#6f897f" fill="#6f897f" stroke-width="1.1">
+      <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+      <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+      <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+    </g>
+
+    <g transform="rotate(270)" stroke="#0b645d" fill="#0b645d" stroke-width="1.1">
+      <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+      <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+      <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+    </g>
+
+    <g transform="rotate(315)" stroke="#38586a" fill="#38586a" stroke-width="1.1">
+      <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+      <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+      <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+    </g>
+  </g>
+</svg>
