@@ -11,19 +11,22 @@
     <a href="./index.html" class="brand">Giuseppe Gruttad'Auria</a>
 
     <details class="nav-menu">
-      <summary class="menu-toggle" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <summary class="menu-toggle" aria-label="Open menu, current page: Teaching">
+        <span class="current-page">Teaching</span>
+        <span class="menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </summary>
 
       <div class="dropdown">
         <a href="./index.html">Home</a>
-        <a href="./about-me.html">About me</a>
         <a href="./research.html">Research</a>
         <a href="./teaching.html" class="active">Teaching</a>
         <a href="./cv.html">CV</a>
-        <a href="./field-notes.html">Field Notes</a>
+        <a href="./news.html">News</a>
+        <a href="./about-me.html">About me</a>
       </div>
     </details>
   </nav>
@@ -31,62 +34,78 @@
   <main class="wrap">
     <div class="card">
       <h1>Teaching</h1>
-      <p class="subtitle">Courses • Lectures • Seminars</p>
+      <p class="subtitle">Applied quantitative training</p>
+
+      <div class="intro">
+        <p>
+          My teaching focuses on helping students work confidently with quantitative
+          methods, from statistical reasoning to applied econometric analysis in
+          <strong>R</strong>.
+        </p>
+
+        <p>
+          Across lectures, tutorials, and tutoring roles, I aim to make technical tools
+          practical, transparent, and connected to real empirical questions.
+        </p>
+      </div>
 
       <section class="section">
-        <h2>Courses</h2>
+        <h2>Teaching Experience</h2>
 
-        <div class="course-item">
-          <strong>Econometrics (Econométrie TP)</strong> — Autumn Semesters 2023–24,
-          2024–25, 2025–26 (UniNE)
-        </div>
-
-        <div class="course-meta">
-          <p>
-            The following course content and learning objectives applied across the three
-            academic years listed above. This applied econometrics tutorial course focused
-            on regression analysis, model diagnostics, and the practical use of
-            <strong>R</strong> for empirical work.
+        <article class="course-item">
+          <h3>Lecturer — Econometrics (Econométrie TP)</h3>
+          <p class="course-meta">
+            Autumn Semesters 2023–24, 2024–25, 2025–26 · Faculty of Economics and
+            Business (SECO), University of Neuchâtel
           </p>
 
-          <h3>Course Content</h3>
-          <ul>
-            <li>Introduction to regression analysis</li>
-            <li>The classical linear regression model</li>
-            <li>Residual analysis, diagnostics, and influence measures</li>
-            <li>Generalized regression models, heteroskedasticity, and autocorrelation</li>
-            <li>Selected issues in applied econometrics</li>
-          </ul>
+          <details class="course-details">
+            <summary>Course details</summary>
 
-          <h3>Learning Objectives</h3>
-          <ul>
-            <li>Produce and compare different estimators using a variety of datasets.</li>
-            <li>Develop familiarity with the statistical software <strong>R</strong>.</li>
-            <li>Apply core econometric methods to empirical data.</li>
-            <li>Describe and critically discuss a scientific article or study based on basic econometric methods.</li>
-            <li>Apply the theoretical concepts covered in class to practical cases.</li>
-          </ul>
-        </div>
+            <div class="course-details-body">
+              <p>
+                Applied tutorial course focused on regression analysis, model diagnostics,
+                and the practical use of <strong>R</strong> for empirical work.
+              </p>
+
+              <h4>Topics and skills</h4>
+              <ul>
+                <li>Introduction to regression analysis and the classical linear regression model</li>
+                <li>Residual analysis, diagnostics, and influence measures</li>
+                <li>Generalized regression models, heteroskedasticity, and autocorrelation</li>
+                <li>Comparison of estimators using applied datasets</li>
+                <li>Critical discussion of empirical studies using basic econometric methods</li>
+              </ul>
+            </div>
+          </details>
+        </article>
+
+        <article class="course-item">
+          <h3>Teaching Assistant — Quantitative Methods II</h3>
+          <p class="course-meta">
+            Autumn Semester 2020–21 · Department of Law and Political, Economic, and Social
+            Sciences (DIGSPES), University of Eastern Piedmont (UPO), Alessandria
+          </p>
+        </article>
+
+        <article class="course-item">
+          <h3>Tutor — Statistics and Quantitative Methods</h3>
+          <p class="course-meta">
+            September 2020–April 2022 · Department of Law and Political, Economic, and
+            Social Sciences (DIGSPES), University of Eastern Piedmont (UPO), Alessandria
+          </p>
+          <p>
+            Tutoring activities covered Statistics, Economic Statistics, Mathematical
+            Methods, and Quantitative Methods.
+          </p>
+        </article>
       </section>
 
-      <section class="section">
-        <h2>Seminars</h2>
-
-        <div class="course-item">
-          <p>
-            <strong>20.01.2026</strong> — IMN Research Seminars (UniNE)<br />
-            How Data Visualization Features Influence Individual Perceptions and Attitudes
-          </p>
-        </div>
-
-        <div class="course-item">
-          <p>
-            <strong>03.12.2024</strong> — IMN Research Seminars (UniNE)<br />
-            How Uncertainty in Data Visualization Affects Consumer Responses
-          </p>
-        </div>
-      </section>
     </div>
   </main>
+
+  <footer class="site-footer" aria-label="Site information">
+    <a href="./privacy.html">Privacy</a>
+  </footer>
 </body>
 </html>
