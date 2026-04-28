@@ -5,6 +5,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV | Giuseppe Gruttad'Auria</title>
   <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+  <style>
+    .cv-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .cv-summary {
+      max-width: 72ch;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .cv-snapshot {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .cv-snapshot-item {
+      min-height: 116px;
+      padding: 16px;
+      border: 1px solid rgba(83, 97, 115, 0.16);
+      border-radius: 14px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(237, 244, 239, 0.58)),
+        var(--surface);
+    }
+
+    .cv-snapshot-item span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .cv-snapshot-item strong {
+      display: block;
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      line-height: 1.3;
+    }
+
+    .cv-section {
+      display: grid;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: clamp(22px, 4vw, 42px);
+      align-items: start;
+    }
+
+    .cv-section h2 {
+      margin-bottom: 8px;
+    }
+
+    .cv-section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .cv-timeline {
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cv-entry {
+      position: relative;
+      display: grid;
+      grid-template-columns: 142px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px 0 18px 22px;
+      border-left: 3px solid rgba(15, 118, 110, 0.18);
+    }
+
+    .cv-entry::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: -6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(15, 118, 110, 0.1);
+    }
+
+    .cv-date {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .cv-entry h3 {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+
+    .cv-entry p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .cv-note {
+      font-size: 0.94rem;
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cv-grid li,
+    .cv-language-list div,
+    .cv-panel {
+      padding: 16px;
+      border: 1px solid rgba(83, 97, 115, 0.16);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.56);
+      box-shadow: 0 10px 24px rgba(21, 32, 47, 0.04);
+    }
+
+    .cv-grid li {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .cv-language-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0;
+    }
+
+    .cv-language-list dt {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .cv-language-list dd {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    .cv-panel-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .cv-panel h3 {
+      margin-top: 0;
+    }
+
+    .cv-panel p,
+    .cv-panel ul {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .cv-panel ul {
+      padding-left: 1.15rem;
+    }
+
+    @media (max-width: 760px) {
+      .cv-snapshot,
+      .cv-grid,
+      .cv-language-list {
+        grid-template-columns: 1fr;
+      }
+
+      .cv-section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .cv-entry {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .cv-date {
+        white-space: normal;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Main navigation">
@@ -32,141 +238,270 @@
   </nav>
 
   <main class="wrap">
-    <div class="card">
-      <h1>Curriculum Vitae</h1>
-      <p class="subtitle">Academic CV</p>
+    <article class="card" aria-labelledby="cv-title">
+      <header class="cv-hero">
+        <div>
+          <h1 id="cv-title">Curriculum Vitae</h1>
+          <p class="subtitle">Academic CV</p>
+          <p class="cv-summary">
+            Researcher and lecturer working on data visualization, uncertainty communication,
+            and consumer behavior, with a focus on experimental methods and quantitative
+            analysis.
+          </p>
+        </div>
 
-      <p>
-        Researcher and lecturer working on data visualization, uncertainty communication,
-        and consumer behavior, with a focus on experimental methods and quantitative
-        analysis.
-      </p>
+        <div class="cv-snapshot" aria-label="CV overview">
+          <div class="cv-snapshot-item">
+            <span>Research</span>
+            <strong>Data visualization design, perceptions, and attitudes</strong>
+          </div>
+          <div class="cv-snapshot-item">
+            <span>Teaching</span>
+            <strong>Econometrics and quantitative methods</strong>
+          </div>
+          <div class="cv-snapshot-item">
+            <span>Methods</span>
+            <strong>Experimental design and quantitative analysis</strong>
+          </div>
+        </div>
+      </header>
 
-      <section class="section">
-        <h2>Working Experience</h2>
-        <ul>
-          <li>
-            <strong>09.2023—03.2026</strong>: Lecturer
-            (Chargé d’Enseignement en Travaux Pratiques d’Économétrie),
-            Faculty of Economics and Business, University of Neuchâtel, Switzerland
+      <section class="section cv-section" id="experience" aria-labelledby="experience-title">
+        <div>
+          <h2 id="experience-title">Professional Experience</h2>
+          <p class="cv-section-note">Research, teaching, data analysis, and quantitative training roles.</p>
+        </div>
+
+        <ol class="cv-timeline">
+          <li class="cv-entry">
+            <span class="cv-date">09.2023—03.2026</span>
+            <div>
+              <h3>Lecturer</h3>
+              <p>
+                Chargé d’Enseignement en Travaux Pratiques d’Économétrie, Faculty of
+                Economics and Business, University of Neuchâtel, Switzerland
+              </p>
+            </div>
           </li>
-          <li>
-            <strong>04.2023—03.2026</strong>: SNFS Researcher,
-            Faculty of Economics and Business, University of Neuchâtel, Switzerland
+
+          <li class="cv-entry">
+            <span class="cv-date">04.2023—03.2026</span>
+            <div>
+              <h3>SNFS Researcher</h3>
+              <p>
+                Faculty of Economics and Business, University of Neuchâtel, Switzerland
+              </p>
+            </div>
           </li>
-          <li>
-            <strong>09.2021—12.2021</strong>: Data Analyst Intern,
-            Directorate-General for Competition - Unit COMP.A.3, Policy and Strategy -
-            State aid: case support and policy, European Commission, Belgium
+
+          <li class="cv-entry">
+            <span class="cv-date">09.2021—12.2021</span>
+            <div>
+              <h3>Data Analyst Intern</h3>
+              <p>
+                Directorate-General for Competition - Unit COMP.A.3, Policy and Strategy -
+                State aid: case support and policy, European Commission, Belgium
+              </p>
+            </div>
           </li>
-          <li>
-            <strong>09.2020—04.2022</strong>: Tutor of Statistics, Economic Statistics,
-            Mathematical Methods, and Quantitative Methods, Department of Law and Political,
-            Economic, and Social Sciences, University of Eastern Piedmont, Italy
+
+          <li class="cv-entry">
+            <span class="cv-date">09.2020—04.2022</span>
+            <div>
+              <h3>Tutor of Statistics, Economic Statistics, Mathematical Methods, and Quantitative Methods</h3>
+              <p>
+                Department of Law and Political, Economic, and Social Sciences, University
+                of Eastern Piedmont, Italy
+              </p>
+            </div>
           </li>
-        </ul>
+        </ol>
       </section>
 
-      <section class="section">
-        <h2>Education</h2>
-        <ul>
-          <li>
-            <strong>present</strong>: PhD, Consumer Behavior (Management),
-            Institute of Management, University of Neuchâtel, Switzerland<br />
-            Under the supervision of Prof. Valéry Bezençon and Prof. Adrian Holzer
+      <section class="section cv-section" id="education" aria-labelledby="education-title">
+        <div>
+          <h2 id="education-title">Education</h2>
+          <p class="cv-section-note">Academic training across management, economics, and public finance.</p>
+        </div>
+
+        <ol class="cv-timeline">
+          <li class="cv-entry">
+            <span class="cv-date">present</span>
+            <div>
+              <h3>PhD, Consumer Behavior (Management)</h3>
+              <p>Institute of Management, University of Neuchâtel, Switzerland</p>
+              <p class="cv-note">
+                Under the supervision of Prof. Valéry Bezençon and Prof. Adrian Holzer
+              </p>
+            </div>
           </li>
-          <li>
-            <strong>2022</strong>: MA, Public Economics and Public Finance,
-            Faculty of Management, Economics and Social Sciences, University of Fribourg,
-            Switzerland<br />
-            Mention: <em>Magna cum laude</em>
+
+          <li class="cv-entry">
+            <time class="cv-date" datetime="2022">2022</time>
+            <div>
+              <h3>MA, Public Economics and Public Finance</h3>
+              <p>
+                Faculty of Management, Economics and Social Sciences, University of Fribourg,
+                Switzerland
+              </p>
+              <p class="cv-note">Mention: <em>Magna cum laude</em></p>
+            </div>
           </li>
-          <li>
-            <strong>2022</strong>: MSc, Economics, Management and Institutions,
-            Department of Law and Political, Economic, and Social Sciences,
-            University of Eastern Piedmont, Italy<br />
-            Grade: 110/110 <em>cum laude</em>, Mention: Dignity of press
+
+          <li class="cv-entry">
+            <time class="cv-date" datetime="2022">2022</time>
+            <div>
+              <h3>MSc, Economics, Management and Institutions</h3>
+              <p>
+                Department of Law and Political, Economic, and Social Sciences,
+                University of Eastern Piedmont, Italy
+              </p>
+              <p class="cv-note">Grade: 110/110 <em>cum laude</em>, Mention: Dignity of press</p>
+            </div>
           </li>
-          <li>
-            <strong>2019</strong>: BSc, Business Administration,
-            Department of Economics and Business Studies,
-            University of Eastern Piedmont, Italy
+
+          <li class="cv-entry">
+            <time class="cv-date" datetime="2019">2019</time>
+            <div>
+              <h3>BSc, Business Administration</h3>
+              <p>
+                Department of Economics and Business Studies,
+                University of Eastern Piedmont, Italy
+              </p>
+            </div>
           </li>
-        </ul>
+        </ol>
       </section>
 
-      <section class="section">
-        <h2>Methods and Tools</h2>
-        <ul>
+      <section class="section cv-section" id="methods" aria-labelledby="methods-title">
+        <div>
+          <h2 id="methods-title">Methods and Tools</h2>
+          <p class="cv-section-note">Applied research methods and software used across projects.</p>
+        </div>
+
+        <ul class="cv-grid">
           <li>Experimental design and online surveys</li>
           <li>Statistical analysis (R, STATA, SPSS)</li>
           <li>Programming and web languages: Python, JavaScript, HTML</li>
         </ul>
       </section>
 
-      <section class="section">
-        <h2>Languages</h2>
-        <ul>
-          <li>Italian — Native</li>
-          <li>Spanish — Bilingual</li>
-          <li>English — Full professional</li>
-          <li>French — Professional</li>
-        </ul>
+      <section class="section cv-section" id="languages" aria-labelledby="languages-title">
+        <div>
+          <h2 id="languages-title">Languages</h2>
+          <p class="cv-section-note">Working languages for academic and professional contexts.</p>
+        </div>
+
+        <dl class="cv-language-list">
+          <div>
+            <dt>Italian</dt>
+            <dd>Native</dd>
+          </div>
+          <div>
+            <dt>Spanish</dt>
+            <dd>Bilingual</dd>
+          </div>
+          <div>
+            <dt>English</dt>
+            <dd>Full professional</dd>
+          </div>
+          <div>
+            <dt>French</dt>
+            <dd>Professional</dd>
+          </div>
+        </dl>
       </section>
 
-      <section class="section">
-        <h2>Academic Service</h2>
-        <ul>
-          <li>
-            <strong>2024—2026</strong>: Treasurer, Mid-level Staff Association of the
-            University of Neuchâtel (ACINE)
+      <section class="section cv-section" id="service" aria-labelledby="service-title">
+        <div>
+          <h2 id="service-title">Academic Service</h2>
+          <p class="cv-section-note">Governance, representation, and institutional service roles.</p>
+        </div>
+
+        <ol class="cv-timeline">
+          <li class="cv-entry">
+            <span class="cv-date">2024—2026</span>
+            <div>
+              <h3>Treasurer</h3>
+              <p>Mid-level Staff Association of the University of Neuchâtel (ACINE)</p>
+            </div>
           </li>
-          <li>
-            <strong>2023—2024</strong>: Board Member, Mid-level Staff Association of the
-            University of Neuchâtel (ACINE)
+
+          <li class="cv-entry">
+            <span class="cv-date">2023—2024</span>
+            <div>
+              <h3>Board Member</h3>
+              <p>Mid-level Staff Association of the University of Neuchâtel (ACINE)</p>
+            </div>
           </li>
-          <li>
-            <strong>2016—2022</strong>: External Collaborator — Responsible for planning,
-            managing, and reporting activities for international students (UPO)
+
+          <li class="cv-entry">
+            <span class="cv-date">2016—2022</span>
+            <div>
+              <h3>External Collaborator</h3>
+              <p>
+                Responsible for planning, managing, and reporting activities for
+                international students (UPO)
+              </p>
+            </div>
           </li>
-          <li>
-            <strong>2019—2021</strong>: Student Representative in the Economics,
-            Management, and Institutions Council (UPO)
+
+          <li class="cv-entry">
+            <span class="cv-date">2019—2021</span>
+            <div>
+              <h3>Student Representative</h3>
+              <p>Economics, Management, and Institutions Council (UPO)</p>
+            </div>
           </li>
-          <li>
-            <strong>2017—2019</strong>: Student Representative in the DiSEI International
-            Relations Committee (UPO)
+
+          <li class="cv-entry">
+            <span class="cv-date">2017—2019</span>
+            <div>
+              <h3>Student Representative</h3>
+              <p>DiSEI International Relations Committee (UPO)</p>
+            </div>
           </li>
-        </ul>
+        </ol>
       </section>
 
-      <section class="section">
-        <h2>Student Associations</h2>
+      <section class="section cv-section" id="associations" aria-labelledby="associations-title">
+        <div>
+          <h2 id="associations-title">Student Associations</h2>
+          <p class="cv-section-note">Leadership, coordination, and student engagement activities.</p>
+        </div>
 
-        <h3>ESN (Erasmus Student Network)</h3>
-        <p>
-          Held leadership and coordination roles across local, national, and international
-          levels of ESN, including Co-founder and President of ESN Piemonte Orientale
-          (2015–2020), Treasurer (2020–2022), Education Officer at ESN Italy (2017), Head
-          of the “Eduk8 Forward” committee at ESN AISBL (2017), and co-author of the
-          ESNsurvey XIV at ESN AISBL (2020–2022).
-        </p>
+        <div class="cv-panel-grid">
+          <article class="cv-panel">
+            <h3>ESN (Erasmus Student Network)</h3>
+            <p>
+              Held leadership and coordination roles across local, national, and international
+              levels of ESN, including Co-founder and President of ESN Piemonte Orientale
+              (2015–2020), Treasurer (2020–2022), Education Officer at ESN Italy (2017),
+              Head of the “Eduk8 Forward” committee at ESN AISBL (2017), and co-author of
+              the ESNsurvey XIV at ESN AISBL (2020–2022).
+            </p>
+          </article>
 
-        <h3>RadUni, Radio 6023</h3>
-        <ul>
-          <li>
-            <strong>2019—2022</strong>: Associate and Translator at the European Parliament
-          </li>
-        </ul>
+          <article class="cv-panel">
+            <h3>RadUni, Radio 6023</h3>
+            <ul>
+              <li>
+                <strong>2019—2022</strong>: Associate and Translator at the European Parliament
+              </li>
+            </ul>
+          </article>
 
-        <h3>AIESEC</h3>
-        <ul>
-          <li>
-            <strong>2015—2016</strong>: Section Manager, AIESEC Novara
-          </li>
-        </ul>
+          <article class="cv-panel">
+            <h3>AIESEC</h3>
+            <ul>
+              <li>
+                <strong>2015—2016</strong>: Section Manager, AIESEC Novara
+              </li>
+            </ul>
+          </article>
+        </div>
       </section>
-    </div>
+    </article>
   </main>
 
   <footer class="site-footer" aria-label="Site information">
