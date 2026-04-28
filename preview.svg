@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Giuseppe Gruttad'Auria, Behavioral scientist">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f8f4" />
+      <stop offset="0.52" stop-color="#eef3f0" />
+      <stop offset="1" stop-color="#e2ebe6" />
+    </linearGradient>
+
+    <radialGradient id="accent-glow" cx="0" cy="0" r="1">
+      <stop offset="0" stop-color="#0f766e" stop-opacity="0.2" />
+      <stop offset="0.58" stop-color="#0f766e" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#0f766e" stop-opacity="0" />
+    </radialGradient>
+
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#15202f" flood-opacity="0.14" />
+    </filter>
+
+    <linearGradient id="card-sheen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.88" />
+      <stop offset="0.58" stop-color="#fbfcfa" stop-opacity="0.96" />
+      <stop offset="1" stop-color="#edf4ef" stop-opacity="0.5" />
+    </linearGradient>
+
+    <clipPath id="card-clip">
+      <rect x="96" y="86" width="1008" height="458" rx="30" />
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#background)" />
+  <circle cx="185" cy="92" r="360" fill="url(#accent-glow)" />
+  <circle cx="1060" cy="560" r="300" fill="#dcefe8" opacity="0.45" />
+  <path
+    d="M 0 532 C 210 482 386 570 600 522 C 790 480 944 438 1200 504 L 1200 630 L 0 630 Z"
+    fill="#dcefe8"
+    opacity="0.32"
+  />
+
+  <rect
+    x="96"
+    y="86"
+    width="1008"
+    height="458"
+    rx="30"
+    fill="url(#card-sheen)"
+    stroke="#d6e0d8"
+    filter="url(#soft-shadow)"
+  />
+
+  <g clip-path="url(#card-clip)">
+    <rect x="96" y="86" width="1008" height="7" fill="#0f766e" />
+    <rect x="263" y="86" width="235" height="7" fill="#8aa69b" opacity="0.92" />
+    <circle cx="1044" cy="492" r="214" fill="#dcefe8" opacity="0.32" />
+    <path
+      d="M 96 497 C 266 472 458 525 654 491 C 818 462 954 430 1104 464 L 1104 544 L 96 544 Z"
+      fill="#edf4ef"
+      opacity="0.7"
+    />
+  </g>
+
+  <line x1="372" y1="236" x2="372" y2="394" stroke="#d6e0d8" stroke-width="1.4" />
+  <line x1="372" y1="236" x2="372" y2="286" stroke="#0f766e" stroke-width="2" stroke-linecap="round" />
+
+  <g transform="translate(150 226) scale(3.15)">
+    <text
+      x="24.5"
+      y="46"
+      text-anchor="middle"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-size="43"
+      font-weight="700"
+      fill="#16202f"
+    >G</text>
+
+    <g transform="translate(52 14.8) scale(0.86)" stroke-linecap="round" stroke-linejoin="round">
+      <g stroke="#0f766e" fill="#0f766e" stroke-width="1.1">
+        <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+        <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+        <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+      </g>
+
+      <g transform="rotate(45)" stroke="#115e59" fill="#115e59" stroke-width="1.1">
+        <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+        <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+        <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+      </g>
+
+      <g transform="rotate(90)" stroke="#19756d" fill="#19756d" stroke-width="1.1">
+        <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+        <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+        <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+      </g>
+
+      <g transform="rotate(135)" stroke="#536173" fill="#536173" stroke-width="1.1">
+        <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+        <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+        <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+      </g>
+
+      <g transform="rotate(180)" stroke="#8aa69b" fill="#8aa69b" stroke-width="1.1">
+        <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+        <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+        <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+      </g>
+
+      <g transform="rotate(225)" stroke="#6f897f" fill="#6f897f" stroke-width="1.1">
+        <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+        <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+        <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+      </g>
+
+      <g transform="rotate(270)" stroke="#0b645d" fill="#0b645d" stroke-width="1.1">
+        <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+        <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+        <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+      </g>
+
+      <g transform="rotate(315)" stroke="#38586a" fill="#38586a" stroke-width="1.1">
+        <path d="M -0.82 -3.82 A 3.9 3.9 0 0 1 0.82 -3.82" fill="none" />
+        <line x1="0" y1="-4.15" x2="0" y2="-8.25" />
+        <polygon points="0,-10.9 -1.45,-8.25 1.45,-8.25" />
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(420 298)">
+    <text
+      x="0"
+      y="0"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-size="54"
+      font-weight="700"
+      letter-spacing="-0.8"
+      fill="#16202f"
+    >Giuseppe Gruttad'Auria</text>
+    <text
+      x="2"
+      y="64"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="27"
+      font-weight="700"
+      letter-spacing="3.2"
+      fill="#0f766e"
+    >Behavioral scientist</text>
+    <line x1="2" y1="91" x2="322" y2="91" stroke="#d6e0d8" stroke-width="1.3" />
+    <line x1="2" y1="91" x2="98" y2="91" stroke="#0f766e" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>
