@@ -11,19 +11,22 @@
     <a href="./index.html" class="brand">Giuseppe Gruttad'Auria</a>
 
     <details class="nav-menu">
-      <summary class="menu-toggle" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <summary class="menu-toggle" aria-label="Open menu, current page: About me">
+        <span class="current-page">About me</span>
+        <span class="menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </summary>
 
       <div class="dropdown">
         <a href="./index.html">Home</a>
-        <a href="./about-me.html" class="active">About me</a>
         <a href="./research.html">Research</a>
         <a href="./teaching.html">Teaching</a>
         <a href="./cv.html">CV</a>
-        <a href="./field-notes.html">Field Notes</a>
+        <a href="./news.html">News</a>
+        <a href="./about-me.html" class="active">About me</a>
       </div>
     </details>
   </nav>
@@ -60,17 +63,37 @@
 
       <section class="section">
         <h2>Social</h2>
-        <p>
-          If you’d like to follow my travels, I share short videos and photos on Instagram:
-        </p>
 
-        <div class="links">
-          <a
-            class="btn"
-            href="https://www.instagram.com/giuseppe.grt/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Instagram</a>
+        <div class="social-list">
+          <div class="social-item">
+            <h3>LinkedIn</h3>
+            <p>
+              For academic updates, professional milestones, and research-related notes.
+            </p>
+            <div class="links">
+              <a
+                class="btn"
+                href="https://www.linkedin.com/in/giuseppegrt/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >LinkedIn</a>
+            </div>
+          </div>
+
+          <div class="social-item">
+            <h3>Instagram</h3>
+            <p>
+              For travel fragments, short videos, and more personal visual notes.
+            </p>
+            <div class="links">
+              <a
+                class="btn"
+                href="https://www.instagram.com/giuseppe.grt/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Instagram</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -255,5 +278,9 @@
       </section>
     </div>
   </main>
+
+  <footer class="site-footer" aria-label="Site information">
+    <a href="./privacy.html">Privacy</a>
+  </footer>
 </body>
 </html>
