@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Personal website of Giuseppe Gruttad'Auria."
+    content="Personal website of Giuseppe Gruttad'Auria, PhD Candidate in Consumer Behavior at the University of Neuchâtel."
   />
 
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
@@ -17,7 +17,7 @@
   <meta property="og:title" content="Giuseppe Gruttad'Auria" />
   <meta
     property="og:description"
-    content="Behavioral scientist"
+    content="PhD Candidate in Consumer Behavior at the University of Neuchâtel"
   />
   <meta property="og:url" content="https://gruttadauria.com/" />
   <meta property="og:site_name" content="Giuseppe Gruttad'Auria" />
@@ -36,7 +36,7 @@
   <meta name="twitter:title" content="Giuseppe Gruttad'Auria" />
   <meta
     name="twitter:description"
-    content="Behavioral scientist"
+    content="PhD Candidate in Consumer Behavior at the University of Neuchâtel"
   />
   <meta name="twitter:image" content="https://gruttadauria.com/preview.png" />
 </head>
@@ -45,19 +45,22 @@
     <a href="./index.html" class="brand">Giuseppe Gruttad'Auria</a>
 
     <details class="nav-menu">
-      <summary class="menu-toggle" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <summary class="menu-toggle" aria-label="Open menu, current page: Home">
+        <span class="current-page">Menu</span>
+        <span class="menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </summary>
 
       <div class="dropdown">
         <a href="./index.html" class="active">Home</a>
-        <a href="./about-me.html">About me</a>
         <a href="./research.html">Research</a>
         <a href="./teaching.html">Teaching</a>
         <a href="./cv.html">CV</a>
-        <a href="./field-notes.html">Field Notes</a>
+        <a href="./news.html">News</a>
+        <a href="./about-me.html">About me</a>
       </div>
     </details>
   </nav>
@@ -69,42 +72,66 @@
 
         <div>
           <h1>Giuseppe Gruttad'Auria</h1>
-          <p class="subtitle">Behavioral scientist</p>
+          <p class="subtitle">PhD Candidate in Consumer Behavior</p>
 
           <p>
-            Welcome to my personal website. I work on how data visualizations influence
-            perceptions and attitudes, with a focus on experimental research.
+            Welcome in. This is my small corner of the internet for research, teaching,
+            news, and the occasional side note that does not fit neatly into a CV.
           </p>
 
           <p>
-            🚧 <b>This website is currently under construction</b> 🚧
+            🚧 <b>The website is a new project too:</b> I am building it as I go, so a few
+            shelves may still be moving around. 🚧
           </p>
-
-          <div class="links">
-            <a class="btn primary" href="mailto:giuseppe.gruttadauria@unine.ch">Email me</a>
-            <a
-              class="btn"
-              href="https://www.linkedin.com/in/giuseppegrt/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >LinkedIn</a>
-            <a
-              class="btn"
-              href="https://www.unine.ch/imn/equipe/giuseppe-gruttadauria/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Université de Neuchâtel</a>
-          </div>
         </div>
       </div>
 
       <section class="section">
+        <h2>Current affiliation and contact</h2>
+        <p>
+          I am currently based at the Institute of Management, University of Neuchâtel.
+        </p>
+
+        <address class="contact-address">
+          Institute of Management, Rue A.-L. Breguet 2, 2000 Neuchâtel<br />
+          Office R.170
+        </address>
+
+        <div class="links">
+          <a class="btn primary" href="mailto:giuseppe.gruttadauria@unine.ch">Email me</a>
+          <a
+            class="btn"
+            href="https://www.unine.ch/imn/equipe/giuseppe-gruttadauria/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >University of Neuchâtel</a>
+        </div>
+      </section>
+
+      <section class="section">
         <h2>Current research focus</h2>
-        <ul>
-          <li>Data visualization features and consumer responses</li>
-          <li>Uncertainty displays, fluency, trust, and belief update</li>
-          <li>Data visualization-based beliefs and opinions</li>
-        </ul>
+        <div class="focus-grid" aria-label="Current research focus">
+          <div class="focus-item">
+            <span class="focus-number">01</span>
+            <span class="focus-kicker">Visual design</span>
+            <strong>Perceptions, attitudes, and behavior</strong>
+            <p>How chart features shape what people perceive, how they feel, and how they act online.</p>
+          </div>
+
+          <div class="focus-item">
+            <span class="focus-number">02</span>
+            <span class="focus-kicker">Uncertainty</span>
+            <strong>Uncertainty and belief updating</strong>
+            <p>How visual uncertainty affects whether, when, and why people revise their beliefs.</p>
+          </div>
+
+          <div class="focus-item">
+            <span class="focus-number">03</span>
+            <span class="focus-kicker">Beliefs</span>
+            <strong>Beliefs and opinions</strong>
+            <p>How data visualizations contribute to the formation and expression of opinions.</p>
+          </div>
+        </div>
       </section>
 
       <section class="section">
@@ -112,6 +139,10 @@
       </section>
     </div>
   </main>
+
+  <footer class="site-footer" aria-label="Site information">
+    <a href="./privacy.html">Privacy</a>
+  </footer>
 
   <script>
     const d = new Date(document.lastModified);
