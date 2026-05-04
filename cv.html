@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,26 +24,38 @@
     .cv-snapshot {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      gap: 0;
       margin-top: 4px;
+      padding: 4px 0;
+      border-top: 1px solid rgba(83, 97, 115, 0.14);
+      border-bottom: 1px solid rgba(83, 97, 115, 0.14);
     }
 
     .cv-snapshot-item {
-      min-height: 116px;
-      padding: 16px;
-      border: 1px solid rgba(83, 97, 115, 0.16);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(237, 244, 239, 0.58)),
-        var(--surface);
-      box-shadow: 0 10px 24px rgba(21, 32, 47, 0.05);
-      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
+      position: relative;
+      min-height: 102px;
+      padding: 18px 20px 18px 30px;
+      border-left: 1px solid rgba(83, 97, 115, 0.14);
     }
 
-    .cv-snapshot-item:hover {
-      transform: translateY(-2px);
-      border-color: rgba(15, 118, 110, 0.22);
-      box-shadow: 0 16px 32px rgba(21, 32, 47, 0.08);
+    .cv-snapshot-item:first-child {
+      border-left: none;
+      padding-left: 18px;
+    }
+
+    .cv-snapshot-item::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 13px;
+      width: 3px;
+      height: calc(100% - 40px);
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(15, 118, 110, 0.58), rgba(138, 166, 155, 0.16));
+    }
+
+    .cv-snapshot-item:first-child::before {
+      left: 0;
     }
 
     .cv-snapshot-item span {
@@ -540,9 +551,12 @@
   </main>
 
   <footer class="site-footer" aria-label="Site information">
-    <span>&copy; 2026 Giuseppe Gruttad'Auria</span>
+    <span>&copy; <span data-current-year>2026</span> Giuseppe Gruttad'Auria</span>
+    <span class="footer-separator" aria-hidden="true"></span>
     <a href="./privacy.html">Privacy</a>
+    <span class="footer-separator" aria-hidden="true"></span>
+    <span>Last updated: <span data-last-updated>&mdash;</span></span>
   </footer>
+  <script src="./site.js"></script>
 </body>
 </html>
-
