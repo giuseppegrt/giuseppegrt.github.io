@@ -75,13 +75,14 @@
           <p class="subtitle">PhD Candidate in Consumer Behavior</p>
 
           <p>
-            Welcome in. This is my small corner of the internet for research, teaching,
-            news, and the occasional side note that does not fit neatly into a CV.
+            Welcome in. This website brings together my research on consumer behavior
+            and data visualization, my teaching activity, and the professional updates
+            that shape the work along the way.
           </p>
 
           <p>
-            🚧 <b>The website is a new project too:</b> I am building it as I go, so a few
-            shelves may still be moving around. 🚧
+            Feel free to explore the website, follow recent updates, or get in touch
+            if something here resonates with your work.
           </p>
         </div>
       </div>
@@ -134,21 +135,17 @@
         </div>
       </section>
 
-      <section class="section">
-        <p class="footer-note">Last updated: <span id="last-updated"></span></p>
-      </section>
     </div>
   </main>
 
   <footer class="site-footer" aria-label="Site information">
-    <span>&copy; 2026 Giuseppe Gruttad'Auria</span>
+    <span>&copy; <span data-current-year>2026</span> Giuseppe Gruttad'Auria</span>
+    <span class="footer-separator" aria-hidden="true"></span>
     <a href="./privacy.html">Privacy</a>
+    <span class="footer-separator" aria-hidden="true"></span>
+    <span>Last updated: <span data-last-updated>&mdash;</span></span>
   </footer>
 
-  <script>
-    const d = new Date(document.lastModified);
-    document.getElementById("last-updated").textContent = d.toLocaleDateString("en-GB");
-  </script>
+  <script src="./site.js"></script>
 </body>
 </html>
-
