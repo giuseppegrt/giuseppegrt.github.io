@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +16,8 @@
     }
 
     .cv-summary {
-      max-width: 72ch;
-      margin-bottom: 0;
+      max-width: none;
+      margin-bottom: -2px;
       color: var(--muted);
       font-size: 1.04rem;
     }
@@ -32,10 +33,18 @@
       min-height: 116px;
       padding: 16px;
       border: 1px solid rgba(83, 97, 115, 0.16);
-      border-radius: 14px;
+      border-radius: var(--radius);
       background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(237, 244, 239, 0.58)),
         var(--surface);
+      box-shadow: 0 10px 24px rgba(21, 32, 47, 0.05);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
+    }
+
+    .cv-snapshot-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(15, 118, 110, 0.22);
+      box-shadow: 0 16px 32px rgba(21, 32, 47, 0.08);
     }
 
     .cv-snapshot-item span {
@@ -89,6 +98,13 @@
       gap: 18px;
       padding: 18px 0 18px 22px;
       border-left: 3px solid rgba(15, 118, 110, 0.18);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+    }
+
+    .cv-entry:hover {
+      background: rgba(255, 255, 255, 0.38);
+      border-left-color: rgba(15, 118, 110, 0.42);
     }
 
     .cv-entry::before {
@@ -125,75 +141,78 @@
       color: var(--muted);
     }
 
+    .cv-place {
+      display: block;
+      margin-top: 9px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(83, 97, 115, 0.14);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
     .cv-note {
       font-size: 0.94rem;
     }
 
-    .cv-grid {
+    .cv-method-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
       margin: 0;
       padding: 0;
-      list-style: none;
     }
 
-    .cv-grid li,
-    .cv-language-list div,
-    .cv-panel {
-      padding: 16px;
-      border: 1px solid rgba(83, 97, 115, 0.16);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.56);
-      box-shadow: 0 10px 24px rgba(21, 32, 47, 0.04);
-    }
-
-    .cv-grid li {
-      color: var(--text);
-      font-weight: 700;
-    }
-
+    .cv-method-list div,
     .cv-language-list {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 0;
       margin: 0;
     }
 
+    .cv-method-list div,
+    .cv-language-list div {
+      display: grid;
+      grid-template-columns: minmax(120px, 0.55fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(83, 97, 115, 0.14);
+    }
+
+    .cv-method-list div:first-child,
+    .cv-language-list div:first-child {
+      padding-top: 0;
+    }
+
+    .cv-method-list div:last-child,
+    .cv-language-list div:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .cv-method-list dt,
     .cv-language-list dt {
       color: var(--text);
       font-weight: 800;
     }
 
+    .cv-method-list dd,
     .cv-language-list dd {
-      margin: 4px 0 0;
+      margin: 0;
       color: var(--muted);
-    }
-
-    .cv-panel-grid {
-      display: grid;
-      gap: 14px;
-    }
-
-    .cv-panel h3 {
-      margin-top: 0;
-    }
-
-    .cv-panel p,
-    .cv-panel ul {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .cv-panel ul {
-      padding-left: 1.15rem;
     }
 
     @media (max-width: 760px) {
       .cv-snapshot,
-      .cv-grid,
+      .cv-method-list,
       .cv-language-list {
         grid-template-columns: 1fr;
+      }
+
+      .cv-method-list div,
+      .cv-language-list div {
+        grid-template-columns: 1fr;
+        gap: 2px;
       }
 
       .cv-section {
@@ -278,9 +297,9 @@
             <div>
               <h3>Lecturer</h3>
               <p>
-                Chargé d’Enseignement en Travaux Pratiques d’Économétrie, Faculty of
-                Economics and Business, University of Neuchâtel, Switzerland
+                Chargé d’Enseignement en Travaux Pratiques d’Économétrie
               </p>
+              <span class="cv-place">Faculty of Economics and Business, University of Neuchâtel, Switzerland</span>
             </div>
           </li>
 
@@ -288,9 +307,7 @@
             <span class="cv-date">04.2023—03.2026</span>
             <div>
               <h3>SNFS Researcher</h3>
-              <p>
-                Faculty of Economics and Business, University of Neuchâtel, Switzerland
-              </p>
+              <span class="cv-place">Faculty of Economics and Business, University of Neuchâtel, Switzerland</span>
             </div>
           </li>
 
@@ -300,19 +317,24 @@
               <h3>Data Analyst Intern</h3>
               <p>
                 Directorate-General for Competition - Unit COMP.A.3, Policy and Strategy -
-                State aid: case support and policy, European Commission, Belgium
+                State aid: case support and policy
               </p>
+              <span class="cv-place">European Commission, Belgium</span>
             </div>
           </li>
 
           <li class="cv-entry">
             <span class="cv-date">09.2020—04.2022</span>
             <div>
-              <h3>Tutor of Statistics, Economic Statistics, Mathematical Methods, and Quantitative Methods</h3>
+              <h3>Teaching Assistant and Tutor in Statistics and Quantitative Methods</h3>
               <p>
+                Teaching Assistant for Quantitative Methods II and Tutor of Statistics,
+                Economic Statistics, Mathematical Methods, and Quantitative Methods
+              </p>
+              <span class="cv-place">
                 Department of Law and Political, Economic, and Social Sciences, University
                 of Eastern Piedmont, Italy
-              </p>
+              </span>
             </div>
           </li>
         </ol>
@@ -321,7 +343,7 @@
       <section class="section cv-section" id="education" aria-labelledby="education-title">
         <div>
           <h2 id="education-title">Education</h2>
-          <p class="cv-section-note">Academic training across management, economics, and public finance.</p>
+          <p class="cv-section-note">Academic training in consumer behavior, management, and economics.</p>
         </div>
 
         <ol class="cv-timeline">
@@ -329,7 +351,7 @@
             <span class="cv-date">present</span>
             <div>
               <h3>PhD, Consumer Behavior (Management)</h3>
-              <p>Institute of Management, University of Neuchâtel, Switzerland</p>
+              <span class="cv-place">Institute of Management, University of Neuchâtel, Switzerland</span>
               <p class="cv-note">
                 Under the supervision of Prof. Valéry Bezençon and Prof. Adrian Holzer
               </p>
@@ -340,10 +362,10 @@
             <time class="cv-date" datetime="2022">2022</time>
             <div>
               <h3>MA, Public Economics and Public Finance</h3>
-              <p>
+              <span class="cv-place">
                 Faculty of Management, Economics and Social Sciences, University of Fribourg,
                 Switzerland
-              </p>
+              </span>
               <p class="cv-note">Mention: <em>Magna cum laude</em></p>
             </div>
           </li>
@@ -352,10 +374,10 @@
             <time class="cv-date" datetime="2022">2022</time>
             <div>
               <h3>MSc, Economics, Management and Institutions</h3>
-              <p>
+              <span class="cv-place">
                 Department of Law and Political, Economic, and Social Sciences,
                 University of Eastern Piedmont, Italy
-              </p>
+              </span>
               <p class="cv-note">Grade: 110/110 <em>cum laude</em>, Mention: Dignity of press</p>
             </div>
           </li>
@@ -364,10 +386,10 @@
             <time class="cv-date" datetime="2019">2019</time>
             <div>
               <h3>BSc, Business Administration</h3>
-              <p>
+              <span class="cv-place">
                 Department of Economics and Business Studies,
                 University of Eastern Piedmont, Italy
-              </p>
+              </span>
             </div>
           </li>
         </ol>
@@ -379,11 +401,20 @@
           <p class="cv-section-note">Applied research methods and software used across projects.</p>
         </div>
 
-        <ul class="cv-grid">
-          <li>Experimental design and online surveys</li>
-          <li>Statistical analysis (R, STATA, SPSS)</li>
-          <li>Programming and web languages: Python, JavaScript, HTML</li>
-        </ul>
+        <dl class="cv-method-list">
+          <div>
+            <dt>Research methods</dt>
+            <dd>Experimental, survey, and econometric methods across behavioral science and economics</dd>
+          </div>
+          <div>
+            <dt>Statistical computing</dt>
+            <dd>R, STATA, and SPSS</dd>
+          </div>
+          <div>
+            <dt>Programming and web languages</dt>
+            <dd>Python, JavaScript, and HTML</dd>
+          </div>
+        </dl>
       </section>
 
       <section class="section cv-section" id="languages" aria-labelledby="languages-title">
@@ -423,7 +454,7 @@
             <span class="cv-date">2024—2026</span>
             <div>
               <h3>Treasurer</h3>
-              <p>Mid-level Staff Association of the University of Neuchâtel (ACINE)</p>
+              <span class="cv-place">Mid-level Staff Association of the University of Neuchâtel, ACINE</span>
             </div>
           </li>
 
@@ -431,7 +462,7 @@
             <span class="cv-date">2023—2024</span>
             <div>
               <h3>Board Member</h3>
-              <p>Mid-level Staff Association of the University of Neuchâtel (ACINE)</p>
+              <span class="cv-place">Mid-level Staff Association of the University of Neuchâtel, ACINE</span>
             </div>
           </li>
 
@@ -441,8 +472,9 @@
               <h3>External Collaborator</h3>
               <p>
                 Responsible for planning, managing, and reporting activities for
-                international students (UPO)
+                international students
               </p>
+              <span class="cv-place">University of Eastern Piedmont, UPO</span>
             </div>
           </li>
 
@@ -450,7 +482,7 @@
             <span class="cv-date">2019—2021</span>
             <div>
               <h3>Student Representative</h3>
-              <p>Economics, Management, and Institutions Council (UPO)</p>
+              <span class="cv-place">Economics, Management, and Institutions Council, UPO</span>
             </div>
           </li>
 
@@ -458,7 +490,7 @@
             <span class="cv-date">2017—2019</span>
             <div>
               <h3>Student Representative</h3>
-              <p>DiSEI International Relations Committee (UPO)</p>
+              <span class="cv-place">DiSEI International Relations Committee, UPO</span>
             </div>
           </li>
         </ol>
@@ -470,42 +502,47 @@
           <p class="cv-section-note">Leadership, coordination, and student engagement activities.</p>
         </div>
 
-        <div class="cv-panel-grid">
-          <article class="cv-panel">
-            <h3>ESN (Erasmus Student Network)</h3>
-            <p>
-              Held leadership and coordination roles across local, national, and international
-              levels of ESN, including Co-founder and President of ESN Piemonte Orientale
-              (2015–2020), Treasurer (2020–2022), Education Officer at ESN Italy (2017),
-              Head of the “Eduk8 Forward” committee at ESN AISBL (2017), and co-author of
-              the ESNsurvey XIV at ESN AISBL (2020–2022).
-            </p>
-          </article>
+        <ol class="cv-timeline">
+          <li class="cv-entry">
+            <span class="cv-date">2015—2022</span>
+            <div>
+              <h3>Leadership and Coordination Roles</h3>
+              <p>
+                Held leadership and coordination roles across local, national, and international
+                levels of ESN, including Co-founder and President of ESN Piemonte Orientale
+                (2015–2020), Treasurer (2020–2022), Education Officer at ESN Italy (2017),
+                Head of the “Eduk8 Forward” committee at ESN AISBL (2017), and co-author of
+                the ESNsurvey XIV at ESN AISBL (2020–2022).
+              </p>
+              <span class="cv-place">ESN, Erasmus Student Network</span>
+            </div>
+          </li>
 
-          <article class="cv-panel">
-            <h3>RadUni, Radio 6023</h3>
-            <ul>
-              <li>
-                <strong>2019—2022</strong>: Associate and Translator at the European Parliament
-              </li>
-            </ul>
-          </article>
+          <li class="cv-entry">
+            <span class="cv-date">2019—2022</span>
+            <div>
+              <h3>Associate and Translator</h3>
+              <p>European Parliament</p>
+              <span class="cv-place">RadUni, Radio 6023</span>
+            </div>
+          </li>
 
-          <article class="cv-panel">
-            <h3>AIESEC</h3>
-            <ul>
-              <li>
-                <strong>2015—2016</strong>: Section Manager, AIESEC Novara
-              </li>
-            </ul>
-          </article>
-        </div>
+          <li class="cv-entry">
+            <span class="cv-date">2015—2016</span>
+            <div>
+              <h3>Section Manager</h3>
+              <span class="cv-place">AIESEC Novara</span>
+            </div>
+          </li>
+        </ol>
       </section>
     </article>
   </main>
 
   <footer class="site-footer" aria-label="Site information">
+    <span>&copy; 2026 Giuseppe Gruttad'Auria</span>
     <a href="./privacy.html">Privacy</a>
   </footer>
 </body>
 </html>
+
