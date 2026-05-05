@@ -9,11 +9,10 @@
 </head>
 <body>
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="./index.html" class="brand">Giuseppe Gruttad'Auria</a>
-
     <details class="nav-menu">
-      <summary class="menu-toggle" aria-label="Open menu, current page: News">
-        <span class="current-page">News</span>
+      <summary class="menu-toggle" aria-label="Open menu">
+        <img src="./favicon.svg" alt="" class="menu-mark" aria-hidden="true" />
+        <span class="current-page">Menu</span>
         <span class="menu-icon" aria-hidden="true">
           <span></span>
           <span></span>
@@ -242,26 +241,27 @@
         })();
       </script>
 
-      <section class="section">
+      <section class="section comments-section">
         <h2>Public comments</h2>
-        <p class="subtitle">Leave a note (GitHub login required)</p>
+        <p class="subtitle">Join the conversation</p>
 
-        <p>
-          For private messages, please use email. For public comments, feedback, or a
-          quick hello, you can leave a note below.
+        <p class="comments-intro">
+          Questions, reactions, and quick hellos are welcome here.
         </p>
 
         <div class="comment-consent" id="comments-loader">
-          <p>
-            Public comments are powered by giscus and GitHub Discussions. They are loaded
-            only if you choose to open them. GitHub login is required to comment.
-          </p>
+          <div class="comment-consent-copy">
+            <span class="comment-kicker">Opt-in comments</span>
+            <p>
+              Comments open through GitHub Discussions via giscus only when you choose to
+              load them. A GitHub account is required to post.
+            </p>
+          </div>
 
-          <div class="links">
+          <div class="links comment-actions">
             <button class="btn primary" id="load-comments" type="button">
-              Load public comments
+              Open public comments
             </button>
-            <a class="btn" href="./privacy.html">Privacy note</a>
           </div>
         </div>
 
@@ -277,7 +277,7 @@
 
             button.addEventListener("click", () => {
               button.disabled = true;
-              button.textContent = "Loading comments...";
+              button.textContent = "Opening comments...";
 
               const script = document.createElement("script");
               script.src = "https://giscus.app/client.js";
@@ -301,7 +301,7 @@
 
               script.addEventListener("error", () => {
                 button.disabled = false;
-                button.textContent = "Try loading comments again";
+                button.textContent = "Try opening comments again";
               });
 
               target.append(script);
