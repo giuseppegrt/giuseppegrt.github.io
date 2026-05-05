@@ -28,7 +28,9 @@
       margin-top: 4px;
       padding: 4px 0;
       border-top: 1px solid rgba(83, 97, 115, 0.14);
+      border-right: 1px solid rgba(83, 97, 115, 0.14);
       border-bottom: 1px solid rgba(83, 97, 115, 0.14);
+      border-left: 1px solid rgba(83, 97, 115, 0.14);
     }
 
     .cv-snapshot-item {
@@ -39,8 +41,7 @@
     }
 
     .cv-snapshot-item:first-child {
-      border-left: none;
-      padding-left: 18px;
+      padding-left: 30px;
     }
 
     .cv-snapshot-item::before {
@@ -55,7 +56,7 @@
     }
 
     .cv-snapshot-item:first-child::before {
-      left: 0;
+      left: 13px;
     }
 
     .cv-snapshot-item span {
@@ -78,8 +79,8 @@
 
     .cv-section {
       display: grid;
-      grid-template-columns: 210px minmax(0, 1fr);
-      gap: clamp(22px, 4vw, 42px);
+      grid-template-columns: minmax(180px, 0.24fr) minmax(0, 1fr);
+      gap: clamp(22px, 4vw, 44px);
       align-items: start;
     }
 
@@ -96,48 +97,40 @@
 
     .cv-timeline {
       display: grid;
-      gap: 16px;
+      gap: 0;
       margin: 0;
       padding: 0;
+      border-top: 1px solid rgba(83, 97, 115, 0.14);
+      border-bottom: 1px solid rgba(83, 97, 115, 0.14);
       list-style: none;
     }
 
     .cv-entry {
-      position: relative;
       display: grid;
-      grid-template-columns: 142px minmax(0, 1fr);
-      gap: 18px;
-      padding: 18px 0 18px 22px;
-      border-left: 3px solid rgba(15, 118, 110, 0.18);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+      grid-template-columns: minmax(142px, 0.22fr) minmax(0, 1fr);
+      gap: clamp(18px, 2.8vw, 34px);
+      padding: 18px 0;
+      border-top: 1px solid rgba(83, 97, 115, 0.12);
     }
 
-    .cv-entry:hover {
-      background: rgba(255, 255, 255, 0.38);
-      border-left-color: rgba(15, 118, 110, 0.42);
-    }
-
-    .cv-entry::before {
-      content: "";
-      position: absolute;
-      top: 25px;
-      left: -6px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px rgba(15, 118, 110, 0.1);
+    .cv-entry:first-child {
+      border-top: none;
     }
 
     .cv-date {
-      color: var(--accent);
-      font-size: 0.82rem;
+      color: var(--accent-hover);
+      font-size: 0.8rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       line-height: 1.4;
       text-transform: uppercase;
       white-space: nowrap;
+    }
+
+    .cv-entry > div {
+      min-width: 0;
+      padding-left: clamp(14px, 2vw, 22px);
+      border-left: 1px solid rgba(15, 118, 110, 0.2);
     }
 
     .cv-entry h3 {
@@ -153,52 +146,56 @@
     }
 
     .cv-place {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-top: 9px;
-      padding-top: 8px;
-      border-top: 1px solid rgba(83, 97, 115, 0.14);
+      padding-top: 0;
+      border-top: none;
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.55;
+    }
+
+    .cv-place::before {
+      content: "";
+      flex: 0 0 28px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(15, 118, 110, 0.5), rgba(15, 118, 110, 0));
     }
 
     .cv-note {
       font-size: 0.94rem;
     }
 
-    .cv-method-list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .cv-method-list div,
+    .cv-method-list,
     .cv-language-list {
       display: grid;
       gap: 0;
       margin: 0;
+      padding: 0;
+      border-top: 1px solid rgba(83, 97, 115, 0.14);
+      border-bottom: 1px solid rgba(83, 97, 115, 0.14);
     }
 
     .cv-method-list div,
     .cv-language-list div {
       display: grid;
-      grid-template-columns: minmax(120px, 0.55fr) minmax(0, 1fr);
-      gap: 18px;
+      grid-template-columns: minmax(150px, 0.24fr) minmax(0, 1fr);
+      gap: clamp(18px, 2.8vw, 34px);
       align-items: baseline;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(83, 97, 115, 0.14);
+      padding: 13px 0;
+      border-top: 1px solid rgba(83, 97, 115, 0.12);
     }
 
     .cv-method-list div:first-child,
     .cv-language-list div:first-child {
-      padding-top: 0;
+      border-top: none;
     }
 
     .cv-method-list div:last-child,
     .cv-language-list div:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+      padding-bottom: 13px;
     }
 
     .cv-method-list dt,
@@ -211,6 +208,8 @@
     .cv-language-list dd {
       margin: 0;
       color: var(--muted);
+      padding-left: clamp(14px, 2vw, 22px);
+      border-left: 1px solid rgba(15, 118, 110, 0.2);
     }
 
     @media (max-width: 760px) {
@@ -220,10 +219,32 @@
         grid-template-columns: 1fr;
       }
 
+      .cv-snapshot-item,
+      .cv-snapshot-item:first-child {
+        padding: 18px 0 18px 24px;
+        border-left: none;
+        border-top: 1px solid rgba(83, 97, 115, 0.12);
+      }
+
+      .cv-snapshot-item:first-child {
+        border-top: none;
+      }
+
+      .cv-snapshot-item::before,
+      .cv-snapshot-item:first-child::before {
+        left: 0;
+      }
+
       .cv-method-list div,
       .cv-language-list div {
         grid-template-columns: 1fr;
-        gap: 2px;
+        gap: 8px;
+      }
+
+      .cv-method-list dd,
+      .cv-language-list dd {
+        padding-left: 14px;
+        border-left-width: 2px;
       }
 
       .cv-section {
@@ -236,19 +257,31 @@
         gap: 6px;
       }
 
+      .cv-entry > div {
+        padding-left: 14px;
+        border-left-width: 2px;
+      }
+
       .cv-date {
         white-space: normal;
+      }
+
+      .cv-place {
+        align-items: flex-start;
+      }
+
+      .cv-place::before {
+        margin-top: 0.74rem;
       }
     }
   </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="./index.html" class="brand">Giuseppe Gruttad'Auria</a>
-
     <details class="nav-menu">
-      <summary class="menu-toggle" aria-label="Open menu, current page: CV">
-        <span class="current-page">CV</span>
+      <summary class="menu-toggle" aria-label="Open menu">
+        <img src="./favicon.svg" alt="" class="menu-mark" aria-hidden="true" />
+        <span class="current-page">Menu</span>
         <span class="menu-icon" aria-hidden="true">
           <span></span>
           <span></span>
@@ -274,9 +307,9 @@
           <h1 id="cv-title">Curriculum Vitae</h1>
           <p class="subtitle">Academic CV</p>
           <p class="cv-summary">
-            Researcher and lecturer working on data visualization, uncertainty communication,
-            and consumer behavior, with a focus on experimental methods and quantitative
-            analysis.
+            Behavioral scientist experienced in managing research projects, outreach
+            initiatives, and teaching activities, with strong skills in data analysis,
+            programming, and multilingual academic work.
           </p>
         </div>
 
@@ -298,7 +331,7 @@
 
       <section class="section cv-section" id="experience" aria-labelledby="experience-title">
         <div>
-          <h2 id="experience-title">Professional Experience</h2>
+          <h2 id="experience-title">Professional experience</h2>
           <p class="cv-section-note">Research, teaching, data analysis, and quantitative training roles.</p>
         </div>
 
@@ -408,7 +441,7 @@
 
       <section class="section cv-section" id="methods" aria-labelledby="methods-title">
         <div>
-          <h2 id="methods-title">Methods and Tools</h2>
+          <h2 id="methods-title">Methods and tools</h2>
           <p class="cv-section-note">Applied research methods and software used across projects.</p>
         </div>
 
@@ -456,7 +489,7 @@
 
       <section class="section cv-section" id="service" aria-labelledby="service-title">
         <div>
-          <h2 id="service-title">Academic Service</h2>
+          <h2 id="service-title">Academic service</h2>
           <p class="cv-section-note">Governance, representation, and institutional service roles.</p>
         </div>
 
@@ -509,7 +542,7 @@
 
       <section class="section cv-section" id="associations" aria-labelledby="associations-title">
         <div>
-          <h2 id="associations-title">Student Associations</h2>
+          <h2 id="associations-title">Student associations</h2>
           <p class="cv-section-note">Leadership, coordination, and student engagement activities.</p>
         </div>
 
