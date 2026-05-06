@@ -383,11 +383,22 @@ svg {
 
 .hero > div {
   min-width: 0;
-  max-width: 74ch;
 }
 
 .hero p:last-child {
   margin-bottom: 0;
+}
+
+.hero-lines {
+  max-width: none;
+}
+
+.hero-lines span {
+  display: block;
+}
+
+.hero-lines span + span {
+  margin-top: 0.45rem;
 }
 
 .photo {
@@ -539,8 +550,7 @@ svg {
 }
 
 .seco-email::after {
-  background: var(--seco-yellow);
-  box-shadow: none;
+  display: none;
 }
 
 .card a.seco-email:hover {
@@ -558,14 +568,16 @@ svg {
   border-color: rgba(217, 155, 0, 0.58);
 }
 
-.seco-profile:visited,
-.seco-profile:hover {
+.card a.seco-profile,
+.card a.seco-profile:visited,
+.card a.seco-profile:hover,
+.card a.seco-profile:focus-visible {
   color: var(--seco-black);
 }
 
 .seco-profile:hover {
-  background: rgba(255, 185, 0, 0.12);
-  border-color: var(--seco-yellow-dark);
+  background: #ffffff;
+  border-color: rgba(217, 155, 0, 0.58);
 }
 
 .section {
@@ -608,26 +620,43 @@ svg {
 }
 
 .contact-panel {
+  --seco-yellow: #ffb900;
+  --seco-yellow-soft: #fff4c7;
+  --seco-yellow-dark: #d99b00;
+  --seco-black: #050505;
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: clamp(18px, 3vw, 34px);
   align-items: center;
   margin-top: 14px;
   padding: 18px clamp(18px, 2.5vw, 26px);
-  border: 1px solid rgba(83, 97, 115, 0.14);
+  border: 1px solid rgba(217, 155, 0, 0.42);
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(237, 244, 239, 0.58)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 244, 199, 0.58)),
     var(--surface);
+  box-shadow: 0 14px 34px rgba(21, 32, 47, 0.055);
+}
+
+.contact-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--seco-yellow), rgba(217, 155, 0, 0.72), transparent);
 }
 
 .contact-panel p {
   margin-bottom: 8px;
-  color: var(--text);
+  color: var(--seco-black);
 }
 
 .contact-panel .contact-address {
   margin-bottom: 0;
+  border-left-color: var(--seco-yellow-dark);
+  color: rgba(5, 5, 5, 0.72);
 }
 
 .contact-actions {
@@ -1048,6 +1077,15 @@ svg {
 .request-panel .pub-actions {
   flex: 0 0 auto;
   margin-top: 0;
+}
+
+.card a.request-copy-btn,
+.card a.request-copy-btn:visited,
+.card a.request-copy-btn:hover,
+.card a.request-copy-btn:focus-visible {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .section h3 {
