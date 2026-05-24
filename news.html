@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,8 +52,9 @@
             </p>
 
             <ul class="tag-list" aria-label="Tags">
-              <li>PANDA</li>
-              <li>NRP 80</li>
+              <li class="tag-type">Publication</li>
+              <li>SNSF</li>
+              <li>PANDA, NRP 80</li>
               <li>Report</li>
               <li>Data visualization</li>
             </ul>
@@ -99,10 +101,11 @@
             </p>
 
             <ul class="tag-list" aria-label="Tags">
-              <li>NRP 80</li>
+              <li class="tag-type">Conference</li>
               <li>SNSF</li>
-              <li>Covid-19 in Society</li>
+              <li>PANDA, NRP 80</li>
               <li>Presentation</li>
+              <li>Data visualization</li>
             </ul>
 
             <div class="media-grid news-media">
@@ -137,15 +140,17 @@
           </article>
 
           <article class="post" aria-labelledby="post-2-title">
-            <h3 id="post-2-title">ACR 2025</h3>
+            <h3 id="post-2-title">2025 ACR Annual Conference</h3>
             <p class="meta">
               <time datetime="2025-10-10">10 Oct 2025</time> &middot; Washington, D.C.
             </p>
 
             <ul class="tag-list" aria-label="Tags">
-              <li>Association for Consumer Research</li>
+              <li class="tag-type">Conference</li>
+              <li>ACR</li>
               <li>Competitive paper</li>
-              <li>Uncertainty display and consumer responses</li>
+              <li>CP15</li>
+              <li>Visualized uncertainty</li>
             </ul>
 
             <div class="media-grid news-media">
@@ -182,16 +187,17 @@
           </article>
 
           <article class="post" aria-labelledby="post-3-title">
-            <h3 id="post-3-title">ACR 2024</h3>
+            <h3 id="post-3-title">2024 ACR Annual Conference</h3>
             <p class="meta">
               <time datetime="2024-09-27">27 Sep 2024</time> &middot; Paris
             </p>
 
             <ul class="tag-list" aria-label="Tags">
-              <li>Association for Consumer Research</li>
+              <li class="tag-type">Conference</li>
+              <li>ACR</li>
               <li>Working paper</li>
-              <li>Poster presentation</li>
-              <li>Uncertainty display and consumer responses</li>
+              <li>Poster</li>
+              <li>Visualized uncertainty</li>
             </ul>
 
             <div class="media-grid news-media">
@@ -235,11 +241,24 @@
 
           const posts = Array.from(postList.querySelectorAll(".post"));
           const postsByYear = new Map();
+          let latestPost = null;
+          let latestTimestamp = Number.NEGATIVE_INFINITY;
+
+          posts.forEach((post) => {
+            post.querySelectorAll(".post-badge").forEach((badge) => badge.remove());
+          });
 
           posts.forEach((post) => {
             const time = post.querySelector("time[datetime]");
-            const year = Number.parseInt(time?.getAttribute("datetime")?.slice(0, 4), 10);
+            const dateValue = time?.getAttribute("datetime") ?? "";
+            const year = Number.parseInt(dateValue.slice(0, 4), 10);
+            const timestamp = Date.parse(dateValue);
             if (!Number.isInteger(year)) return;
+
+            if (Number.isFinite(timestamp) && timestamp > latestTimestamp) {
+              latestTimestamp = timestamp;
+              latestPost = post;
+            }
 
             if (!postsByYear.has(year)) {
               postsByYear.set(year, []);
@@ -252,6 +271,17 @@
 
           const currentYear = new Date().getFullYear();
           const currentYearPostCount = postsByYear.get(currentYear)?.length ?? 0;
+
+          if (latestPost) {
+            const title = latestPost.querySelector("h3");
+            if (title) {
+              const badge = document.createElement("span");
+              badge.className = "post-badge";
+              badge.textContent = "New";
+              badge.setAttribute("aria-label", "Newest update");
+              title.append(badge);
+            }
+          }
 
           postList.replaceChildren();
 
@@ -291,11 +321,11 @@
   </main>
 
   <footer class="site-footer" aria-label="Site information">
-    <span>&copy; <span data-current-year>2026</span> Giuseppe Gruttad'Auria</span>
+    <span class="footer-updated">Last updated: <span data-last-updated>&mdash;</span></span>
     <span class="footer-separator" aria-hidden="true"></span>
     <a href="./privacy.html">Privacy</a>
     <span class="footer-separator" aria-hidden="true"></span>
-    <span>Last updated: <span data-last-updated>&mdash;</span></span>
+    <span class="footer-name">&copy; <span data-current-year>2026</span> Giuseppe Gruttad'Auria</span>
   </footer>
   <script src="./site.js"></script>
 </body>
