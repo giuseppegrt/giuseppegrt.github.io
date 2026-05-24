@@ -748,52 +748,50 @@ a.btn:focus-visible {
 
 .focus-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-areas:
-    "primary secondary tertiary";
-  gap: clamp(14px, 2vw, 18px);
-  margin-top: 14px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 12px;
   padding: 0;
   background: none;
 }
 
 .focus-item {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  overflow: hidden;
-  padding: clamp(18px, 2.4vw, 24px);
-  border: 1px solid var(--surface-border);
-  border-radius: var(--radius);
-  background:
-    var(--surface-wash),
-    rgba(255, 255, 255, 0.72);
-  box-shadow: var(--surface-shadow);
+  display: grid;
+  grid-template-columns: minmax(58px, 76px) minmax(0, 1fr);
+  grid-template-areas:
+    "number kicker"
+    "number title"
+    "number copy";
+  column-gap: clamp(16px, 2.4vw, 28px);
+  min-height: 0;
+  overflow: visible;
+  padding: clamp(19px, 2.6vw, 26px) 0;
+  border-top: 1px solid rgba(83, 97, 115, 0.14);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
 }
 
 .focus-item:first-child {
-  grid-area: primary;
-  padding: clamp(18px, 2.4vw, 24px);
-}
-
-.focus-item:nth-child(2) {
-  grid-area: secondary;
-}
-
-.focus-item:nth-child(3) {
-  grid-area: tertiary;
+  padding-top: 0;
+  border-top: 0;
 }
 
 .focus-item::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: clamp(19px, 2.6vw, 26px);
+  bottom: clamp(19px, 2.6vw, 26px);
   left: 0;
-  width: min(72%, 260px);
-  height: 3px;
+  width: 3px;
+  height: auto;
   border-radius: 999px;
   background: var(--gold-accent);
+}
+
+.focus-item:first-child::before {
+  top: 0;
 }
 
 .focus-item:nth-child(2)::before {
@@ -805,11 +803,13 @@ a.btn:focus-visible {
 }
 
 .focus-number {
+  grid-area: number;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  margin-bottom: 14px;
+  align-self: start;
+  margin: 0 0 0 14px;
   padding: 0.3rem 0.55rem;
   border: 1px solid rgba(194, 158, 61, 0.22);
   border-radius: 999px;
@@ -830,8 +830,9 @@ a.btn:focus-visible {
 }
 
 .focus-kicker {
+  grid-area: kicker;
   display: block;
-  margin-bottom: 8px;
+  margin: 0 0 7px;
   color: #8c6f1f;
   font-size: 0.72rem;
   font-weight: 700;
@@ -848,14 +849,15 @@ a.btn:focus-visible {
 }
 
 .focus-item strong {
+  grid-area: title;
   display: block;
   color: var(--text);
   line-height: 1.35;
 }
 
 .focus-item p {
-  flex: 1;
-  margin: 8px 0 0;
+  grid-area: copy;
+  margin: 7px 0 0;
   font-size: 0.92rem;
   line-height: 1.55;
 }
@@ -921,17 +923,22 @@ a.btn:focus-visible {
 }
 
 .home-wrap .focus-grid {
-  gap: clamp(12px, 1.7vw, 16px);
+  gap: 0;
   margin-top: 10px;
 }
 
 .home-wrap .focus-item,
 .home-wrap .focus-item:first-child {
-  padding: clamp(16px, 2vw, 21px);
+  padding-top: clamp(16px, 2vw, 21px);
+  padding-bottom: clamp(16px, 2vw, 21px);
+}
+
+.home-wrap .focus-item:first-child {
+  padding-top: 0;
 }
 
 .home-wrap .focus-number {
-  margin-bottom: 10px;
+  margin-left: 13px;
   padding: 0.25rem 0.5rem;
   font-size: 0.98rem;
 }
@@ -1634,77 +1641,26 @@ a.btn:focus-visible {
   margin-top: 18px;
 }
 
-.privacy-intro {
-  position: relative;
-  overflow: hidden;
-  margin-top: 10px;
-  padding: clamp(18px, 2.4vw, 26px) clamp(18px, 2.8vw, 30px);
-  border: 1px solid var(--surface-border);
-  border-radius: var(--radius);
-  background:
-    var(--surface-wash),
-    rgba(255, 255, 255, 0.72);
-  box-shadow: var(--surface-shadow);
+.privacy-copy {
+  margin-top: 12px;
 }
 
-.privacy-intro::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--divider-width);
-  height: 3px;
-  background: var(--divider-gradient);
-}
-
-.privacy-intro p {
+.privacy-copy > p,
+.privacy-block p {
   color: var(--text);
 }
 
-.privacy-section {
-  position: relative;
-  overflow: hidden;
-  margin-top: 22px;
-  padding: clamp(18px, 2.3vw, 24px) clamp(18px, 2.8vw, 30px);
-  border: 1px solid var(--surface-border);
-  border-radius: var(--radius);
-  background:
-    var(--surface-wash),
-    rgba(255, 255, 255, 0.7);
-  box-shadow: var(--surface-shadow);
+.privacy-block {
+  margin-top: clamp(26px, 4vw, 36px);
+  padding-top: clamp(18px, 2.6vw, 24px);
+  border-top: 1px solid rgba(83, 97, 115, 0.14);
 }
 
-.privacy-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--divider-width);
-  height: 3px;
-  background: var(--divider-gradient);
+.privacy-block h2 {
+  margin-bottom: 8px;
 }
 
-.privacy-section h2 {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 10px;
-}
-
-.privacy-section h2::before {
-  content: "";
-  width: 0.78rem;
-  height: 0.42rem;
-  border-radius: var(--radius-sm);
-  background: var(--marker-accent);
-  flex: 0 0 auto;
-}
-
-.privacy-section p {
-  color: var(--text);
-}
-
-.privacy-section p:last-child {
+.privacy-block p:last-child {
   margin-bottom: 0;
 }
 
@@ -2414,24 +2370,32 @@ a.btn:focus-visible {
 
   .focus-grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "primary"
-      "secondary"
-      "tertiary";
   }
 
   .home-wrap .focus-grid {
-    gap: 12px;
+    gap: 0;
   }
 
   .focus-item,
   .focus-item:first-child {
-    padding: 18px;
+    grid-template-columns: minmax(50px, 62px) minmax(0, 1fr);
+    column-gap: 14px;
+    padding: 18px 0;
   }
 
   .home-wrap .focus-item,
   .home-wrap .focus-item:first-child {
-    padding: 17px;
+    padding: 17px 0;
+  }
+
+  .focus-item:first-child,
+  .home-wrap .focus-item:first-child {
+    padding-top: 0;
+  }
+
+  .focus-number,
+  .home-wrap .focus-number {
+    margin-left: 12px;
   }
 
   .proceedings-list .pub-item {
