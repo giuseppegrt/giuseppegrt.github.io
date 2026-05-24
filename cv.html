@@ -15,11 +15,73 @@
       gap: 22px;
     }
 
+    .cv-heading-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(18px, 3vw, 32px);
+      align-items: start;
+    }
+
     .cv-summary {
       max-width: none;
       margin-bottom: -2px;
       color: var(--muted);
       font-size: 1.04rem;
+    }
+
+    .cv-pdf-btn {
+      --btn-bg: #ffffff;
+      --btn-bg-hover: #ffffff;
+      --btn-border: rgba(218, 37, 42, 0.28);
+      --btn-border-hover: rgba(218, 37, 42, 0.5);
+      --btn-color: var(--text);
+      --btn-hover-color: var(--text);
+      justify-self: end;
+      min-height: 42px;
+      padding: 8px 14px 8px 10px;
+      gap: 0.58rem;
+      white-space: nowrap;
+    }
+
+    .pdf-mark {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 28px;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #da252a;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 0.66rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+    }
+
+    .pdf-mark::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 9px;
+      height: 9px;
+      border-bottom-left-radius: 4px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .card a.cv-pdf-btn,
+    .card a.cv-pdf-btn:visited,
+    .card a.cv-pdf-btn:hover,
+    .card a.cv-pdf-btn:focus-visible {
+      color: var(--btn-color);
+    }
+
+    .card a.cv-pdf-btn:hover {
+      text-decoration: none;
     }
 
     .cv-snapshot {
@@ -212,6 +274,14 @@
     }
 
     @media (max-width: 760px) {
+      .cv-heading-row {
+        grid-template-columns: 1fr;
+      }
+
+      .cv-pdf-btn {
+        justify-self: start;
+      }
+
       .cv-snapshot,
       .cv-method-list,
       .cv-language-list {
@@ -302,14 +372,27 @@
   <main class="wrap">
     <article class="card" aria-labelledby="cv-title">
       <header class="cv-hero">
-        <div>
-          <h1 id="cv-title">Curriculum Vitae</h1>
-          <p class="subtitle">Academic CV</p>
-          <p class="cv-summary">
-            Behavioral scientist experienced in managing research projects, outreach
-            initiatives, and teaching activities, with strong skills in data analysis,
-            programming, and multilingual academic work.
-          </p>
+        <div class="cv-heading-row">
+          <div>
+            <h1 id="cv-title">Curriculum Vitae</h1>
+            <p class="subtitle">Evidence, Policy and Decision Support</p>
+            <p class="cv-summary">
+              Behavioral scientist experienced in managing research projects, outreach
+              initiatives, and teaching activities, with strong skills in data analysis,
+              programming, and multilingual academic work.
+            </p>
+          </div>
+
+          <a
+            class="btn cv-pdf-btn"
+            href="./documents/giuseppe-gruttadauria-cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open CV PDF in a new tab"
+          >
+            <span class="pdf-mark" aria-hidden="true">PDF</span>
+            <span>View CV</span>
+          </a>
         </div>
 
         <div class="cv-snapshot" aria-label="CV overview">
@@ -331,7 +414,7 @@
       <section class="section cv-section" id="experience" aria-labelledby="experience-title">
         <div>
           <h2 id="experience-title">Professional experience</h2>
-          <p class="cv-section-note">Research, teaching, data analysis, and quantitative training roles.</p>
+          <p class="cv-section-note">Research, teaching, data analysis, quantitative training, and service roles.</p>
         </div>
 
         <ol class="cv-timeline">
@@ -378,6 +461,18 @@
                 Department of Law and Political, Economic, and Social Sciences, University
                 of Eastern Piedmont, Italy
               </span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">10.2011&mdash;01.2018</span>
+            <div>
+              <h3>Frontline Customer Service Associate</h3>
+              <p>
+                Contract customer-facing roles across sales, event stewarding,
+                security support, and hospitality service.
+              </p>
+              <span class="cv-place">Private sector, Italy</span>
             </div>
           </li>
         </ol>
@@ -433,6 +528,9 @@
                 Department of Economics and Business Studies,
                 University of Eastern Piedmont, Italy
               </span>
+              <p class="cv-note">
+                LLP-Erasmus: Ciències Econòmiques i Empresarials, Universitat de Girona
+              </p>
             </div>
           </li>
         </ol>
@@ -564,8 +662,11 @@
           <li class="cv-entry">
             <span class="cv-date">2019—2022</span>
             <div>
-              <h3>Associate and Translator</h3>
-              <p>European Parliament</p>
+              <h3>Associate</h3>
+              <p>
+                Accredited journalist at the European Parliament, covering plenary
+                sessions and contributing translation and editorial support.
+              </p>
               <span class="cv-place">RadUni, Radio 6023</span>
             </div>
           </li>
@@ -583,11 +684,11 @@
   </main>
 
   <footer class="site-footer" aria-label="Site information">
-    <span class="footer-updated">Last updated: <span data-last-updated>&mdash;</span></span>
-    <span class="footer-separator" aria-hidden="true"></span>
     <a href="./privacy.html">Privacy</a>
     <span class="footer-separator" aria-hidden="true"></span>
     <span class="footer-name">&copy; <span data-current-year>2026</span> Giuseppe Gruttad'Auria</span>
+    <span class="footer-separator" aria-hidden="true"></span>
+    <span class="footer-updated">Updated: <span data-last-updated>&mdash;</span></span>
   </footer>
   <script src="./site.js"></script>
 </body>
