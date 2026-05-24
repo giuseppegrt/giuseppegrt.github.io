@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -582,11 +583,605 @@
   </main>
 
   <footer class="site-footer" aria-label="Site information">
-    <span>&copy; <span data-current-year>2026</span> Giuseppe Gruttad'Auria</span>
+    <span class="footer-updated">Last updated: <span data-last-updated>&mdash;</span></span>
     <span class="footer-separator" aria-hidden="true"></span>
     <a href="./privacy.html">Privacy</a>
     <span class="footer-separator" aria-hidden="true"></span>
-    <span>Last updated: <span data-last-updated>&mdash;</span></span>
+    <span class="footer-name">&copy; <span data-current-year>2026</span> Giuseppe Gruttad'Auria</span>
+  </footer>
+  <script src="./site.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV | Giuseppe Gruttad'Auria</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+  <style>
+    .cv-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .cv-summary {
+      max-width: none;
+      margin-bottom: -2px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .cv-snapshot {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 4px;
+      padding: 4px 0;
+    }
+
+    .cv-snapshot-item {
+      position: relative;
+      min-height: 102px;
+      padding: 18px 20px 18px 30px;
+      border-left: 1px solid var(--divider-line);
+    }
+
+    .cv-snapshot-item:first-child {
+      padding-left: 30px;
+    }
+
+    .cv-snapshot-item::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 13px;
+      width: 2px;
+      height: calc(100% - 40px);
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(15, 118, 110, 0.42), rgba(138, 166, 155, 0.12));
+    }
+
+    .cv-snapshot-item:first-child::before {
+      left: 13px;
+    }
+
+    .cv-snapshot-item span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .cv-snapshot-item strong {
+      display: block;
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      line-height: 1.3;
+    }
+
+    .cv-section {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.24fr) minmax(0, 1fr);
+      gap: clamp(22px, 4vw, 44px);
+      align-items: start;
+    }
+
+    .cv-section h2 {
+      margin-bottom: 8px;
+    }
+
+    .cv-section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .cv-timeline {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      background:
+        var(--divider-rule) left top / var(--divider-width) 1px no-repeat,
+        var(--divider-rule) left bottom / var(--divider-width) 1px no-repeat;
+      list-style: none;
+    }
+
+    .cv-entry {
+      display: grid;
+      grid-template-columns: minmax(142px, 0.22fr) minmax(0, 1fr);
+      gap: clamp(18px, 2.8vw, 34px);
+      padding: 18px 0;
+      background: var(--divider-rule) left top / var(--divider-width) 1px no-repeat;
+    }
+
+    .cv-entry:first-child {
+      background: none;
+    }
+
+    .cv-date {
+      color: var(--accent-hover);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .cv-entry > div {
+      min-width: 0;
+      padding-left: clamp(14px, 2vw, 22px);
+      border-left: 1px solid rgba(15, 118, 110, 0.2);
+    }
+
+    .cv-entry h3 {
+      margin: 0;
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+
+    .cv-entry p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .cv-place {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 9px;
+      padding-top: 0;
+      border-top: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .cv-place::before {
+      content: "";
+      flex: 0 0 24px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(15, 118, 110, 0.34), rgba(15, 118, 110, 0));
+    }
+
+    .cv-note {
+      font-size: 0.94rem;
+    }
+
+    .cv-method-list,
+    .cv-language-list {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      background:
+        var(--divider-rule) left top / var(--divider-width) 1px no-repeat,
+        var(--divider-rule) left bottom / var(--divider-width) 1px no-repeat;
+    }
+
+    .cv-method-list div,
+    .cv-language-list div {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.24fr) minmax(0, 1fr);
+      gap: clamp(18px, 2.8vw, 34px);
+      align-items: baseline;
+      padding: 13px 0;
+      background: var(--divider-rule) left top / var(--divider-width) 1px no-repeat;
+    }
+
+    .cv-method-list div:first-child,
+    .cv-language-list div:first-child {
+      background: none;
+    }
+
+    .cv-method-list div:last-child,
+    .cv-language-list div:last-child {
+      padding-bottom: 13px;
+    }
+
+    .cv-method-list dt,
+    .cv-language-list dt {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .cv-method-list dd,
+    .cv-language-list dd {
+      margin: 0;
+      color: var(--muted);
+      padding-left: clamp(14px, 2vw, 22px);
+      border-left: 1px solid rgba(15, 118, 110, 0.2);
+    }
+
+    @media (max-width: 760px) {
+      .cv-snapshot,
+      .cv-method-list,
+      .cv-language-list {
+        grid-template-columns: 1fr;
+      }
+
+      .cv-snapshot-item,
+      .cv-snapshot-item:first-child {
+        padding: 18px 0 18px 24px;
+        border-left: none;
+        background: var(--divider-rule) left top / var(--divider-width) 1px no-repeat;
+      }
+
+      .cv-snapshot-item:first-child {
+        background: none;
+      }
+
+      .cv-snapshot-item::before,
+      .cv-snapshot-item:first-child::before {
+        left: 0;
+      }
+
+      .cv-method-list div,
+      .cv-language-list div {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .cv-method-list dd,
+      .cv-language-list dd {
+        padding-left: 14px;
+        border-left-width: 2px;
+      }
+
+      .cv-section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .cv-entry {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .cv-entry > div {
+        padding-left: 14px;
+        border-left-width: 2px;
+      }
+
+      .cv-date {
+        white-space: normal;
+      }
+
+      .cv-place {
+        align-items: flex-start;
+      }
+
+      .cv-place::before {
+        margin-top: 0.74rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <details class="nav-menu">
+      <summary class="menu-toggle" aria-label="Open menu">
+        <img src="./favicon.svg" alt="" class="menu-mark" aria-hidden="true" />
+        <span class="current-page">CV</span>
+        <span class="menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </summary>
+
+      <div class="dropdown">
+        <a href="./index.html">Home</a>
+        <a href="./research.html">Research</a>
+        <a href="./teaching.html">Teaching</a>
+        <a href="./cv.html" class="active">CV</a>
+        <a href="./news.html">News</a>
+        <a href="./about-me.html">About me</a>
+      </div>
+    </details>
+  </nav>
+
+  <main class="wrap">
+    <article class="card" aria-labelledby="cv-title">
+      <header class="cv-hero">
+        <div>
+          <h1 id="cv-title">Curriculum Vitae</h1>
+          <p class="subtitle">Academic CV</p>
+          <p class="cv-summary">
+            Behavioral scientist experienced in managing research projects, outreach
+            initiatives, and teaching activities, with strong skills in data analysis,
+            programming, and multilingual academic work.
+          </p>
+        </div>
+
+        <div class="cv-snapshot" aria-label="CV overview">
+          <div class="cv-snapshot-item">
+            <span>Research</span>
+            <strong>Data visualization design, perceptions, and attitudes</strong>
+          </div>
+          <div class="cv-snapshot-item">
+            <span>Teaching</span>
+            <strong>Econometrics and quantitative methods</strong>
+          </div>
+          <div class="cv-snapshot-item">
+            <span>Methods</span>
+            <strong>Experimental design and quantitative analysis</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="section cv-section" id="experience" aria-labelledby="experience-title">
+        <div>
+          <h2 id="experience-title">Professional experience</h2>
+          <p class="cv-section-note">Research, teaching, data analysis, and quantitative training roles.</p>
+        </div>
+
+        <ol class="cv-timeline">
+          <li class="cv-entry">
+            <span class="cv-date">09.2023—03.2026</span>
+            <div>
+              <h3>Lecturer</h3>
+              <p>
+                Chargé d’Enseignement en Travaux Pratiques d’Économétrie
+              </p>
+              <span class="cv-place">Faculty of Economics and Business, University of Neuchâtel, Switzerland</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">04.2023—03.2026</span>
+            <div>
+              <h3>SNFS Researcher</h3>
+              <span class="cv-place">Faculty of Economics and Business, University of Neuchâtel, Switzerland</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">09.2021—12.2021</span>
+            <div>
+              <h3>Data Analyst Intern</h3>
+              <p>
+                Directorate-General for Competition - Unit COMP.A.3, Policy and Strategy -
+                State aid: case support and policy
+              </p>
+              <span class="cv-place">European Commission, Belgium</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">09.2020—04.2022</span>
+            <div>
+              <h3>Teaching Assistant and Tutor in Statistics and Quantitative Methods</h3>
+              <p>
+                Teaching Assistant for Quantitative Methods II and Tutor of Statistics,
+                Economic Statistics, Mathematical Methods, and Quantitative Methods
+              </p>
+              <span class="cv-place">
+                Department of Law and Political, Economic, and Social Sciences, University
+                of Eastern Piedmont, Italy
+              </span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section cv-section" id="education" aria-labelledby="education-title">
+        <div>
+          <h2 id="education-title">Education</h2>
+          <p class="cv-section-note">Academic training in consumer behavior, management, and economics.</p>
+        </div>
+
+        <ol class="cv-timeline">
+          <li class="cv-entry">
+            <span class="cv-date">present</span>
+            <div>
+              <h3>PhD, Consumer Behavior (Management)</h3>
+              <span class="cv-place">Institute of Management, University of Neuchâtel, Switzerland</span>
+              <p class="cv-note">
+                Under the supervision of Prof. Valéry Bezençon and Prof. Adrian Holzer
+              </p>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <time class="cv-date" datetime="2022">2022</time>
+            <div>
+              <h3>MA, Public Economics and Public Finance</h3>
+              <span class="cv-place">
+                Faculty of Management, Economics and Social Sciences, University of Fribourg,
+                Switzerland
+              </span>
+              <p class="cv-note">Mention: <em>Magna cum laude</em></p>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <time class="cv-date" datetime="2022">2022</time>
+            <div>
+              <h3>MSc, Economics, Management and Institutions</h3>
+              <span class="cv-place">
+                Department of Law and Political, Economic, and Social Sciences,
+                University of Eastern Piedmont, Italy
+              </span>
+              <p class="cv-note">Grade: 110/110 <em>cum laude</em>, Mention: Dignity of press</p>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <time class="cv-date" datetime="2019">2019</time>
+            <div>
+              <h3>BSc, Business Administration</h3>
+              <span class="cv-place">
+                Department of Economics and Business Studies,
+                University of Eastern Piedmont, Italy
+              </span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section cv-section" id="methods" aria-labelledby="methods-title">
+        <div>
+          <h2 id="methods-title">Methods and tools</h2>
+          <p class="cv-section-note">Applied research methods and software used across projects.</p>
+        </div>
+
+        <dl class="cv-method-list">
+          <div>
+            <dt>Research methods</dt>
+            <dd>Experimental, survey, and econometric methods across behavioral science and economics</dd>
+          </div>
+          <div>
+            <dt>Statistical computing</dt>
+            <dd>R, STATA, and SPSS</dd>
+          </div>
+          <div>
+            <dt>Programming and web languages</dt>
+            <dd>Python, JavaScript, and HTML</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section cv-section" id="languages" aria-labelledby="languages-title">
+        <div>
+          <h2 id="languages-title">Languages</h2>
+          <p class="cv-section-note">Working languages for academic and professional contexts.</p>
+        </div>
+
+        <dl class="cv-language-list">
+          <div>
+            <dt>Italian</dt>
+            <dd>Native</dd>
+          </div>
+          <div>
+            <dt>Spanish</dt>
+            <dd>Bilingual</dd>
+          </div>
+          <div>
+            <dt>English</dt>
+            <dd>Full professional</dd>
+          </div>
+          <div>
+            <dt>French</dt>
+            <dd>Professional</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section cv-section" id="service" aria-labelledby="service-title">
+        <div>
+          <h2 id="service-title">Academic service</h2>
+          <p class="cv-section-note">Governance, representation, and institutional service roles.</p>
+        </div>
+
+        <ol class="cv-timeline">
+          <li class="cv-entry">
+            <span class="cv-date">2024—2026</span>
+            <div>
+              <h3>Treasurer</h3>
+              <span class="cv-place">Mid-level Staff Association of the University of Neuchâtel, ACINE</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">2023—2024</span>
+            <div>
+              <h3>Board Member</h3>
+              <span class="cv-place">Mid-level Staff Association of the University of Neuchâtel, ACINE</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">2016—2022</span>
+            <div>
+              <h3>External Collaborator</h3>
+              <p>
+                Responsible for planning, managing, and reporting activities for
+                international students
+              </p>
+              <span class="cv-place">University of Eastern Piedmont, UPO</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">2019—2021</span>
+            <div>
+              <h3>Student Representative</h3>
+              <span class="cv-place">Economics, Management, and Institutions Council, UPO</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">2017—2019</span>
+            <div>
+              <h3>Student Representative</h3>
+              <span class="cv-place">DiSEI International Relations Committee, UPO</span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section cv-section" id="associations" aria-labelledby="associations-title">
+        <div>
+          <h2 id="associations-title">Student associations</h2>
+          <p class="cv-section-note">Leadership, coordination, and student engagement activities.</p>
+        </div>
+
+        <ol class="cv-timeline">
+          <li class="cv-entry">
+            <span class="cv-date">2015—2022</span>
+            <div>
+              <h3>Leadership and Coordination Roles</h3>
+              <p>
+                Held leadership and coordination roles across local, national, and international
+                levels of ESN, including Co-founder and President of ESN Piemonte Orientale
+                (2015–2020), Treasurer (2020–2022), Education Officer at ESN Italy (2017),
+                Head of the “Eduk8 Forward” committee at ESN AISBL (2017), and co-author of
+                the ESNsurvey XIV at ESN AISBL (2020–2022).
+              </p>
+              <span class="cv-place">ESN, Erasmus Student Network</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">2019—2022</span>
+            <div>
+              <h3>Associate and Translator</h3>
+              <p>European Parliament</p>
+              <span class="cv-place">RadUni, Radio 6023</span>
+            </div>
+          </li>
+
+          <li class="cv-entry">
+            <span class="cv-date">2015—2016</span>
+            <div>
+              <h3>Section Manager</h3>
+              <span class="cv-place">AIESEC Novara</span>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer" aria-label="Site information">
+    <span class="footer-updated">Last updated: <span data-last-updated>&mdash;</span></span>
+    <span class="footer-separator" aria-hidden="true"></span>
+    <a href="./privacy.html">Privacy</a>
+    <span class="footer-separator" aria-hidden="true"></span>
+    <span class="footer-name">&copy; <span data-current-year>2026</span> Giuseppe Gruttad'Auria</span>
   </footer>
   <script src="./site.js"></script>
 </body>
