@@ -33,7 +33,7 @@
       position: relative;
       min-height: 102px;
       padding: 18px 20px 18px 30px;
-      border-left: 1px solid rgba(83, 97, 115, 0.14);
+      border-left: 1px solid var(--divider-line);
     }
 
     .cv-snapshot-item:first-child {
@@ -45,10 +45,10 @@
       position: absolute;
       top: 20px;
       left: 13px;
-      width: 3px;
+      width: 2px;
       height: calc(100% - 40px);
       border-radius: 999px;
-      background: linear-gradient(180deg, rgba(15, 118, 110, 0.58), rgba(138, 166, 155, 0.16));
+      background: linear-gradient(180deg, rgba(15, 118, 110, 0.42), rgba(138, 166, 155, 0.12));
     }
 
     .cv-snapshot-item:first-child::before {
@@ -96,8 +96,9 @@
       gap: 0;
       margin: 0;
       padding: 0;
-      border-top: 1px solid rgba(83, 97, 115, 0.14);
-      border-bottom: 1px solid rgba(83, 97, 115, 0.14);
+      background:
+        var(--divider-rule) left top / var(--divider-width) 1px no-repeat,
+        var(--divider-rule) left bottom / var(--divider-width) 1px no-repeat;
       list-style: none;
     }
 
@@ -106,11 +107,11 @@
       grid-template-columns: minmax(142px, 0.22fr) minmax(0, 1fr);
       gap: clamp(18px, 2.8vw, 34px);
       padding: 18px 0;
-      border-top: 1px solid rgba(83, 97, 115, 0.12);
+      background: var(--divider-rule) left top / var(--divider-width) 1px no-repeat;
     }
 
     .cv-entry:first-child {
-      border-top: none;
+      background: none;
     }
 
     .cv-date {
@@ -155,9 +156,9 @@
 
     .cv-place::before {
       content: "";
-      flex: 0 0 28px;
+      flex: 0 0 24px;
       height: 1px;
-      background: linear-gradient(90deg, rgba(15, 118, 110, 0.5), rgba(15, 118, 110, 0));
+      background: linear-gradient(90deg, rgba(15, 118, 110, 0.34), rgba(15, 118, 110, 0));
     }
 
     .cv-note {
@@ -170,8 +171,9 @@
       gap: 0;
       margin: 0;
       padding: 0;
-      border-top: 1px solid rgba(83, 97, 115, 0.14);
-      border-bottom: 1px solid rgba(83, 97, 115, 0.14);
+      background:
+        var(--divider-rule) left top / var(--divider-width) 1px no-repeat,
+        var(--divider-rule) left bottom / var(--divider-width) 1px no-repeat;
     }
 
     .cv-method-list div,
@@ -181,12 +183,12 @@
       gap: clamp(18px, 2.8vw, 34px);
       align-items: baseline;
       padding: 13px 0;
-      border-top: 1px solid rgba(83, 97, 115, 0.12);
+      background: var(--divider-rule) left top / var(--divider-width) 1px no-repeat;
     }
 
     .cv-method-list div:first-child,
     .cv-language-list div:first-child {
-      border-top: none;
+      background: none;
     }
 
     .cv-method-list div:last-child,
@@ -219,11 +221,11 @@
       .cv-snapshot-item:first-child {
         padding: 18px 0 18px 24px;
         border-left: none;
-        border-top: 1px solid rgba(83, 97, 115, 0.12);
+        background: var(--divider-rule) left top / var(--divider-width) 1px no-repeat;
       }
 
       .cv-snapshot-item:first-child {
-        border-top: none;
+        background: none;
       }
 
       .cv-snapshot-item::before,
@@ -277,7 +279,7 @@
     <details class="nav-menu">
       <summary class="menu-toggle" aria-label="Open menu">
         <img src="./favicon.svg" alt="" class="menu-mark" aria-hidden="true" />
-        <span class="current-page">Menu</span>
+        <span class="current-page">CV</span>
         <span class="menu-icon" aria-hidden="true">
           <span></span>
           <span></span>
