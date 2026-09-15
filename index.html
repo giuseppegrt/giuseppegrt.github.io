@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Giuseppe Gruttad'Auria</title>
+  <link rel="canonical" href="https://gruttadauria.com/" />
   <link rel="stylesheet" href="./style.css" />
 
   <meta
@@ -26,8 +27,8 @@
   <meta property="og:image" content="https://gruttadauria.com/preview.png" />
   <meta property="og:image:secure_url" content="https://gruttadauria.com/preview.png" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image:width" content="1779" />
+  <meta property="og:image:height" content="918" />
   <meta
     property="og:image:alt"
     content="Preview card for Giuseppe Gruttad'Auria personal website"
@@ -40,9 +41,15 @@
     content="PhD Candidate in Consumer Behavior at the University of Neuchâtel"
   />
   <meta name="twitter:image" content="https://gruttadauria.com/preview.png" />
+  <meta name="twitter:image:alt" content="Giuseppe Gruttad'Auria personal website" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <nav class="site-nav" aria-label="Main navigation">
+    <a class="nav-brand" href="./index.html" aria-label="Giuseppe Gruttad'Auria home">
+      <img src="./favicon.svg" alt="" width="34" height="34" />
+      <span>Giuseppe<br />Gruttad'Auria</span>
+    </a>
     <details class="nav-menu">
       <summary class="menu-toggle" aria-label="Open menu">
         <img src="./favicon.svg" alt="" class="menu-mark" aria-hidden="true" />
@@ -55,8 +62,9 @@
       </summary>
 
       <div class="dropdown">
-        <a href="./index.html" class="active">Home</a>
+        <a href="./index.html" class="active" aria-current="page">Home</a>
         <a href="./research.html">Research</a>
+        <a href="./vizcheck.html">VizCheck</a>
         <a href="./teaching.html">Teaching</a>
         <a href="./cv.html">CV</a>
         <a href="./news.html">News</a>
@@ -65,10 +73,19 @@
     </details>
   </nav>
 
-  <main class="wrap home-wrap">
+  <main class="wrap home-wrap" id="main-content" tabindex="-1">
     <div class="card">
       <div class="hero">
-        <img src="profile.png" alt="Portrait of Giuseppe" class="photo" />
+        <img
+          src="./img/optimized/profile-480.webp"
+          srcset="./img/optimized/profile-240.webp 240w, ./img/optimized/profile-480.webp 480w, ./img/optimized/profile-652.webp 652w"
+          sizes="(max-width: 720px) 176px, 190px"
+          width="652"
+          height="653"
+          alt="Portrait of Giuseppe"
+          class="photo"
+          fetchpriority="high"
+        />
 
         <div>
           <h1>Giuseppe Gruttad'Auria</h1>
@@ -84,8 +101,8 @@
               Welcome in.
             </span>
             <span>
-              I am a behavioral scientist studying how data visualizations shape
-              people&rsquo;s minds: what they perceive and how the information affects them.
+              I study how data visualizations shape people&rsquo;s minds: what they perceive
+              and how they respond to information.
             </span>
             <span>
               Let&rsquo;s understand how to make data visualizations behaviorally intentional.
