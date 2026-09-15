@@ -5,11 +5,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About me | Giuseppe Gruttad'Auria</title>
+  <meta name="description" content="Meet Giuseppe Gruttad'Auria: biography, professional profiles, and a personal selection of Spotify playlists." />
+  <link rel="canonical" href="https://gruttadauria.com/about-me.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Giuseppe Gruttad'Auria" />
+  <meta property="og:title" content="About me | Giuseppe Gruttad'Auria" />
+  <meta property="og:description" content="Meet Giuseppe Gruttad'Auria: biography, professional profiles, and a personal selection of Spotify playlists." />
+  <meta property="og:url" content="https://gruttadauria.com/about-me.html" />
+  <meta property="og:image" content="https://gruttadauria.com/preview.png" />
+  <meta property="og:image:width" content="1779" />
+  <meta property="og:image:height" content="918" />
+  <meta property="og:image:alt" content="Giuseppe Gruttad'Auria personal website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About me | Giuseppe Gruttad'Auria" />
+  <meta name="twitter:description" content="Meet Giuseppe Gruttad'Auria: biography, professional profiles, and a personal selection of Spotify playlists." />
+  <meta name="twitter:image" content="https://gruttadauria.com/preview.png" />
+  <meta name="twitter:image:alt" content="Giuseppe Gruttad'Auria personal website" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <nav class="site-nav" aria-label="Main navigation">
+    <a class="nav-brand" href="./index.html" aria-label="Giuseppe Gruttad'Auria home">
+      <img src="./favicon.svg" alt="" width="34" height="34" />
+      <span>Giuseppe<br />Gruttad'Auria</span>
+    </a>
     <details class="nav-menu">
       <summary class="menu-toggle" aria-label="Open menu">
         <img src="./favicon.svg" alt="" class="menu-mark" aria-hidden="true" />
@@ -24,77 +45,47 @@
       <div class="dropdown">
         <a href="./index.html">Home</a>
         <a href="./research.html">Research</a>
+        <a href="./vizcheck.html">VizCheck</a>
         <a href="./teaching.html">Teaching</a>
         <a href="./cv.html">CV</a>
         <a href="./news.html">News</a>
-        <a href="./about-me.html" class="active">About me</a>
+        <a href="./about-me.html" class="active" aria-current="page">About me</a>
       </div>
     </details>
   </nav>
 
-  <main class="wrap">
+  <main class="wrap" id="main-content" tabindex="-1">
     <div class="card">
       <h1>About me</h1>
-      <p class="subtitle">Beyond the academic profile</p>
+      <p class="subtitle">Research, education and beyond</p>
 
-      <div class="intro">
+      <div class="bio-copy" id="biography">
         <p>
-          A personal note on what sits behind the formal CV.
+          I&rsquo;m Giuseppe, an Italian scholar based in Switzerland. I moved here to pursue
+          my PhD after training in economics, a field that still shapes how I think about
+          evidence, decisions, and the way people respond to information. Over time, my
+          path has moved through universities in different roles: student, researcher,
+          lecturer, tutor, and contributor to academic service.
+        </p>
+
+        <p>
+          Those experiences taught me to read institutions from the inside, to listen
+          carefully before drawing conclusions, and to enjoy the slow work of
+          understanding context. I am continuing my research projects while looking
+          for a role in research or higher education.
+        </p>
+
+        <p>
+          Away from work, I read often, sometimes philosophically and often across
+          languages, because I am drawn to questions that take time to unfold. I&rsquo;m also
+          an experimental cook, a traveler when schedules allow, and a devoted listener
+          of good music.
         </p>
       </div>
 
-      <section class="section about-bio">
-        <h2>Biography</h2>
-        <div class="bio-copy">
-          <p>
-            I&rsquo;m Giuseppe, an Italian scholar based in Switzerland. I moved here to pursue
-            my PhD after training in economics, a field that still shapes how I think about
-            evidence, decisions, and the way people respond to information. Over time, my
-            path has moved through universities in different roles: student, researcher,
-            lecturer, tutor, and contributor to academic service. Those experiences taught
-            me to read institutions from the inside, to listen carefully before drawing
-            conclusions, and to enjoy the slow work of understanding context. Right now
-            I&rsquo;m focused on finishing my doctoral papers and would like to keep working in
-            research, inside or outside academia, on questions where rigorous methods can
-            help people understand information more clearly. Away from work, I read often,
-            sometimes philosophically and often across languages, because I am drawn to
-            questions that take time to unfold. I&rsquo;m also an experimental cook, a traveler
-            when schedules allow, and a devoted listener of good music.
-          </p>
-        </div>
-      </section>
 
-      <section class="section about-social">
-        <h2>Social</h2>
-
-        <p>
-          If you want to stay in touch, these are the easiest places to find me.
-        </p>
-
-        <div class="links social-actions">
-          <a
-            class="btn social-linkedin"
-            href="https://www.linkedin.com/in/giuseppegrt/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Follow on LinkedIn</a>
-          <a
-            class="btn social-instagram"
-            href="https://www.instagram.com/giuseppe.grt/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Follow on Instagram</a>
-          <a
-            class="btn social-x"
-            href="https://x.com/giuseppegrt"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Follow on X</a>
-        </div>
-      </section>
-
-      <section class="section about-playlists">
-        <h2>Playlists on Spotify</h2>
+      <details class="section about-playlists" id="playlists">
+        <summary><h2>Playlists on Spotify</h2></summary>
 
         <p>
           A small soundtrack cabinet for different moods, rhythms, and ways of moving
@@ -200,119 +191,36 @@
             <figcaption>&#10084;&#65039; Love where words fall short.</figcaption>
           </figure>
         </div>
-      </section>
+      </details>
 
-      <section class="section comments-section">
-        <h2>Public comments</h2>
-        <p class="subtitle">Join the conversation</p>
-
-        <p class="comments-intro">
-          Questions, reactions, and quick hellos are welcome here.
-        </p>
-
-        <div class="comment-consent" id="comments-loader">
-          <div class="comment-consent-copy">
-            <span class="comment-kicker">Opt-in comments</span>
-            <p>
-              Comments open through GitHub Discussions via giscus only when you choose to
-              load them. A GitHub account is required to post.
-            </p>
-          </div>
-
-          <div class="links comment-actions">
-            <button class="btn primary" id="load-comments" type="button">
-              Open public comments
-            </button>
-          </div>
+      <section class="section about-social" id="social" aria-labelledby="online-profiles-title">
+        <h2 id="online-profiles-title">Find me online</h2>
+        <div class="links social-actions">
+          <a
+            class="btn social-linkedin"
+            href="https://www.linkedin.com/in/giuseppegrt/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LinkedIn</a>
+          <a
+            class="btn research-profile-btn research-scholar"
+            href="https://scholar.google.com/citations?user=J5bQWigAAAAJ&hl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Google Scholar</a>
+          <a
+            class="btn research-profile-btn research-orcid"
+            href="https://orcid.org/0009-0002-7827-5285"
+            target="_blank"
+            rel="noopener noreferrer"
+          >ORCID</a>
+          <a
+            class="btn research-profile-btn research-osf"
+            href="https://osf.io/user/6svrf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >OSF</a>
         </div>
-
-        <div class="giscus" id="giscus-comments" aria-live="polite"></div>
-
-        <script>
-          (() => {
-            const button = document.getElementById("load-comments");
-            const loader = document.getElementById("comments-loader");
-            const target = document.getElementById("giscus-comments");
-
-            if (!button || !loader || !target) return;
-
-            button.addEventListener("click", () => {
-              button.disabled = true;
-              button.textContent = "Opening comments...";
-
-              const script = document.createElement("script");
-              script.src = "https://giscus.app/client.js";
-              script.setAttribute("data-repo", "giuseppegrt/giuseppegrt.github.io");
-              script.setAttribute("data-repo-id", "R_kgDORW08pw");
-              script.setAttribute("data-category", "General");
-              script.setAttribute("data-category-id", "DIC_kwDORW08p84C3FSB");
-              script.setAttribute("data-mapping", "pathname");
-              script.setAttribute("data-strict", "0");
-              script.setAttribute("data-reactions-enabled", "1");
-              script.setAttribute("data-emit-metadata", "0");
-              script.setAttribute("data-input-position", "bottom");
-              script.setAttribute("data-theme", "preferred_color_scheme");
-              script.setAttribute("data-lang", "en");
-              script.setAttribute("crossorigin", "anonymous");
-              script.async = true;
-
-              let didFinish = false;
-              let timeoutId;
-
-              const hideLoader = () => {
-                loader.classList.add("is-hiding");
-                loader.addEventListener("transitionend", () => {
-                  loader.hidden = true;
-                }, { once: true });
-
-                window.setTimeout(() => {
-                  loader.hidden = true;
-                }, 360);
-              };
-
-              const finishLoading = () => {
-                if (didFinish) return;
-                didFinish = true;
-                window.clearTimeout(timeoutId);
-                observer.disconnect();
-                button.textContent = "Comments opened";
-                hideLoader();
-              };
-
-              const observer = new MutationObserver(() => {
-                if (target.querySelector("iframe")) {
-                  finishLoading();
-                }
-              });
-
-              observer.observe(target, { childList: true, subtree: true });
-
-              script.addEventListener("load", () => {
-                window.setTimeout(finishLoading, 180);
-              });
-
-              script.addEventListener("error", () => {
-                didFinish = true;
-                window.clearTimeout(timeoutId);
-                observer.disconnect();
-                script.remove();
-                button.disabled = false;
-                button.textContent = "Try opening comments again";
-              });
-
-              timeoutId = window.setTimeout(() => {
-                if (didFinish) return;
-                didFinish = true;
-                observer.disconnect();
-                script.remove();
-                button.disabled = false;
-                button.textContent = "Try opening comments again";
-              }, 8000);
-
-              target.append(script);
-            });
-          })();
-        </script>
       </section>
     </div>
   </main>
