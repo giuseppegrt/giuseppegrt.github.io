@@ -5,6 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV | Giuseppe Gruttad'Auria</title>
+  <meta name="description" content="Giuseppe Gruttad'Auria's research, teaching, education, methods, and professional experience. View the CV online or open the PDF." />
+  <link rel="canonical" href="https://gruttadauria.com/cv.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Giuseppe Gruttad'Auria" />
+  <meta property="og:title" content="CV | Giuseppe Gruttad'Auria" />
+  <meta property="og:description" content="Giuseppe Gruttad'Auria's research, teaching, education, methods, and professional experience. View the CV online or open the PDF." />
+  <meta property="og:url" content="https://gruttadauria.com/cv.html" />
+  <meta property="og:image" content="https://gruttadauria.com/preview.png" />
+  <meta property="og:image:width" content="1779" />
+  <meta property="og:image:height" content="918" />
+  <meta property="og:image:alt" content="Giuseppe Gruttad'Auria personal website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CV | Giuseppe Gruttad'Auria" />
+  <meta name="twitter:description" content="Giuseppe Gruttad'Auria's research, teaching, education, methods, and professional experience. View the CV online or open the PDF." />
+  <meta name="twitter:image" content="https://gruttadauria.com/preview.png" />
+  <meta name="twitter:image:alt" content="Giuseppe Gruttad'Auria personal website" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 
@@ -13,16 +29,38 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr);
       gap: 22px;
+      overflow-wrap: anywhere;
+    }
+
+    .cv-hero > *,
+    .cv-heading-row > *,
+    .cv-section > *,
+    .cv-snapshot-item {
+      min-width: 0;
+    }
+
+    #cv-title {
+      font-size: 2.65rem;
+      letter-spacing: 0;
+      hyphens: auto;
     }
 
     .cv-heading-row {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: clamp(18px, 3vw, 32px);
+      grid-template-areas:
+        "title action"
+        "summary summary";
+      column-gap: clamp(18px, 3vw, 32px);
       align-items: start;
     }
 
+    .cv-heading-row > div {
+      grid-area: title;
+    }
+
     .cv-summary {
+      grid-area: summary;
       max-width: none;
       margin-bottom: -2px;
       color: var(--muted);
@@ -30,6 +68,7 @@
     }
 
     .cv-pdf-btn {
+      grid-area: action;
       --btn-bg: #ffffff;
       --btn-bg-hover: #ffffff;
       --btn-border: rgba(218, 37, 42, 0.28);
@@ -48,8 +87,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 28px;
+      flex: 0 0 auto;
+      width: 2.25rem;
+      height: 1.75rem;
       overflow: hidden;
       border-radius: 6px;
       background: #da252a;
@@ -58,7 +98,7 @@
       font-size: 0.66rem;
       font-weight: 900;
       line-height: 1;
-      letter-spacing: 0.05em;
+      letter-spacing: 0;
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
     }
 
@@ -67,8 +107,8 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 9px;
-      height: 9px;
+      width: 0.5625rem;
+      height: 0.5625rem;
       border-bottom-left-radius: 4px;
       background: rgba(255, 255, 255, 0.68);
     }
@@ -141,6 +181,7 @@
       grid-template-columns: minmax(180px, 0.24fr) minmax(0, 1fr);
       gap: clamp(22px, 4vw, 44px);
       align-items: start;
+      overflow-wrap: anywhere;
     }
 
     .cv-section h2 {
@@ -184,7 +225,7 @@
       letter-spacing: 0.08em;
       line-height: 1.4;
       text-transform: uppercase;
-      white-space: nowrap;
+      white-space: normal;
     }
 
     .cv-entry > div {
@@ -274,23 +315,33 @@
     }
 
     @media (max-width: 760px) {
+      #cv-title {
+        font-size: 2.05rem;
+      }
+
       .cv-heading-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+          "title"
+          "summary"
+          "action";
       }
 
       .cv-pdf-btn {
         justify-self: start;
+        margin-top: 18px;
       }
 
       .cv-snapshot,
       .cv-method-list,
       .cv-language-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .cv-snapshot-item,
       .cv-snapshot-item:first-child {
-        padding: 18px 0 18px 24px;
+        min-height: 0;
+        padding: 12px 0 12px 24px;
         border-left: none;
         background: var(--divider-rule) left top / var(--divider-width) 1px no-repeat;
       }
@@ -301,13 +352,16 @@
 
       .cv-snapshot-item::before,
       .cv-snapshot-item:first-child::before {
+        top: 14px;
         left: 0;
+        height: calc(100% - 28px);
       }
 
       .cv-method-list div,
       .cv-language-list div {
-        grid-template-columns: 1fr;
-        gap: 8px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 6px;
+        padding: 10px 0;
       }
 
       .cv-method-list dd,
@@ -317,22 +371,27 @@
       }
 
       .cv-section {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
       }
 
       .cv-entry {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 6px;
+        padding: 12px 0;
+      }
+
+      .cv-entry h3 {
+        margin: 0 0 6px;
+      }
+
+      .cv-entry .cv-place {
+        margin-top: 6px;
       }
 
       .cv-entry > div {
         padding-left: 14px;
         border-left-width: 2px;
-      }
-
-      .cv-date {
-        white-space: normal;
       }
 
       .cv-place {
@@ -346,7 +405,12 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <nav class="site-nav" aria-label="Main navigation">
+    <a class="nav-brand" href="./index.html" aria-label="Giuseppe Gruttad'Auria home">
+      <img src="./favicon.svg" alt="" width="34" height="34" />
+      <span>Giuseppe<br />Gruttad'Auria</span>
+    </a>
     <details class="nav-menu">
       <summary class="menu-toggle" aria-label="Open menu">
         <img src="./favicon.svg" alt="" class="menu-mark" aria-hidden="true" />
@@ -361,27 +425,29 @@
       <div class="dropdown">
         <a href="./index.html">Home</a>
         <a href="./research.html">Research</a>
+        <a href="./vizcheck.html">VizCheck</a>
         <a href="./teaching.html">Teaching</a>
-        <a href="./cv.html" class="active">CV</a>
+        <a href="./cv.html" class="active" aria-current="page">CV</a>
         <a href="./news.html">News</a>
         <a href="./about-me.html">About me</a>
       </div>
     </details>
   </nav>
 
-  <main class="wrap">
+  <main class="wrap" id="main-content" tabindex="-1">
     <article class="card" aria-labelledby="cv-title">
       <header class="cv-hero">
         <div class="cv-heading-row">
           <div>
             <h1 id="cv-title">Curriculum Vitae</h1>
             <p class="subtitle">Evidence, Policy and Decision Support</p>
-            <p class="cv-summary">
-              Behavioral scientist experienced in managing research projects, outreach
-              initiatives, and teaching activities, with strong skills in data analysis,
-              programming, and multilingual academic work.
-            </p>
           </div>
+
+          <p class="cv-summary">
+            Behavioral scientist experienced in managing research projects, outreach
+            initiatives, and teaching activities, with strong skills in data analysis,
+            programming, and multilingual academic work.
+          </p>
 
           <a
             class="btn cv-pdf-btn"
@@ -432,7 +498,7 @@
           <li class="cv-entry">
             <span class="cv-date">04.2023—03.2026</span>
             <div>
-              <h3>SNFS Researcher</h3>
+              <h3>SNSF Researcher</h3>
               <span class="cv-place">Faculty of Economics and Business, University of Neuchâtel, Switzerland</span>
             </div>
           </li>
