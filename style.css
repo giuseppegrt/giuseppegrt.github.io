@@ -2048,6 +2048,10 @@ a.btn:focus-visible {
   box-shadow: none;
 }
 
+.media-grid.news-media img.news-photo-wide {
+  aspect-ratio: auto;
+}
+
 .media-grid.news-media img.news-banner {
   aspect-ratio: 64 / 25;
   object-fit: contain;
@@ -2287,7 +2291,7 @@ body.desktop-navigation {
   scroll-margin-top: 24px;
 }
 
-@media (min-width: 1024px) and (max-width: 1199px) {
+@media (min-width: 960px) and (max-width: 1199px) {
   .desktop-navigation .post {
     display: block;
   }
