@@ -1,21 +1,62 @@
 (() => {
   const currentYear = String(new Date().getFullYear());
-  const lastUpdated = "15/09/2026";
 
   document.querySelectorAll("[data-current-year]").forEach((yearElement) => {
     yearElement.textContent = currentYear;
   });
 
-  document.querySelectorAll("[data-last-updated]").forEach((dateElement) => {
-    dateElement.textContent = lastUpdated;
-  });
+  const showLastUpdated = (lastModified) => {
+    const date = new Date(lastModified);
+    if (Number.isNaN(date.getTime())) return;
+
+    const formatted = new Intl.DateTimeFormat("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      timeZone: "Europe/Zurich",
+    }).format(date);
+
+    document.querySelectorAll("[data-last-updated]").forEach((dateElement) => {
+      dateElement.textContent = formatted;
+    });
+  };
+
+  const updateLastUpdated = async () => {
+    if (window.location.protocol === "file:") {
+      showLastUpdated(document.lastModified);
+      return;
+    }
+
+    if (!/^https?:$/.test(window.location.protocol)) return;
+
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 5000);
+
+    try {
+      // GitHub Pages supplies the deployment date in this response header.
+      const response = await fetch(window.location.href, {
+        method: "HEAD",
+        cache: "no-cache",
+        signal: controller.signal,
+      });
+      const lastModified = response.headers.get("Last-Modified");
+      if (response.ok && lastModified) showLastUpdated(lastModified);
+    } catch {
+      // Keep the placeholder if unavailable; never substitute the visit date.
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  };
+
+  updateLastUpdated();
 
   document.querySelectorAll(".nav-menu").forEach((menu) => {
     const toggle = menu.querySelector(".menu-toggle");
     const navigation = menu.closest(".site-nav");
     const links = menu.querySelector(".dropdown");
     const brand = navigation?.querySelector(".nav-brand");
-    const desktop = window.matchMedia("(min-width: 1024px)");
+    // Phone browsers commonly request desktop sites with a 980px viewport.
+    const desktop = window.matchMedia("(min-width: 960px)");
 
     if (!toggle || !navigation || !links) return;
 
