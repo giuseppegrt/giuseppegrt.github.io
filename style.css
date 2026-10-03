@@ -995,7 +995,8 @@ a.btn:focus-visible {
 .btn.primary.vizcheck-partner-btn {
   --btn-bg-hover: var(--btn-bg);
   --btn-border-hover: var(--btn-border);
-  --btn-shadow-hover: 0 6px 18px rgba(21, 32, 47, 0.16);
+  --btn-shadow: none;
+  --btn-shadow-hover: none;
   max-width: 100%;
 }
 
@@ -1032,6 +1033,47 @@ a.btn:focus-visible {
 
 .vizcheck-page .vizcheck-loop-note {
   margin-top: 18px;
+}
+
+.vizcheck-audiences {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.vizcheck-details {
+  margin-top: 18px;
+}
+
+.vizcheck-details > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 48px;
+  padding: 10px 0;
+  border-radius: var(--radius-sm);
+  color: var(--accent-hover);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.vizcheck-details > summary:hover {
+  color: var(--accent);
+}
+
+.vizcheck-details-body {
+  padding: 8px 0 0 20px;
+}
+
+.vizcheck-details-body > :last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 721px) {
+  .vizcheck-audiences {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
 }
 
 #partner-contact {
@@ -1517,12 +1559,14 @@ a.btn:focus-visible {
 }
 
 .course-details summary::-webkit-details-marker,
-.about-playlists > summary::-webkit-details-marker {
+.about-playlists > summary::-webkit-details-marker,
+.vizcheck-details > summary::-webkit-details-marker {
   display: none;
 }
 
 .course-details summary::before,
-.about-playlists > summary::before {
+.about-playlists > summary::before,
+.vizcheck-details > summary::before {
   content: "";
   flex-shrink: 0;
   width: 0.45rem;
@@ -1534,12 +1578,14 @@ a.btn:focus-visible {
 }
 
 .course-details[open] summary::before,
-.about-playlists[open] > summary::before {
+.about-playlists[open] > summary::before,
+.vizcheck-details[open] > summary::before {
   transform: rotate(45deg);
 }
 
 .course-details summary:focus-visible,
-.about-playlists > summary:focus-visible {
+.about-playlists > summary:focus-visible,
+.vizcheck-details > summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -4px;
 }
